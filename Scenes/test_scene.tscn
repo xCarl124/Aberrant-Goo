@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://m1wlpx4ysp74"]
+
+[ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_q3n65"]
+[ext_resource type="Script" path="res://Scripts/input_manager.gd" id="2_suelq"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_30xls"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ks6ph"]
+size = Vector2(364, 39)
+
+[node name="test scene" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(572, 627)
+scale = Vector2(3.12, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(365.5, 46)
+texture = SubResource("PlaceholderTexture2D_30xls")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_ks6ph")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1132, 78)
+rotation = 1.5708
+scale = Vector2(3.12, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+scale = Vector2(365.5, 46)
+texture = SubResource("PlaceholderTexture2D_30xls")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_ks6ph")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(19, 80)
+rotation = 1.5708
+scale = Vector2(3.12, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+scale = Vector2(365.5, 46)
+texture = SubResource("PlaceholderTexture2D_30xls")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_ks6ph")
+
+[node name="Player" parent="." instance=ExtResource("1_q3n65")]
+position = Vector2(116, 119)
+
+[node name="Input Manager" type="Node2D" parent="." node_paths=PackedStringArray("ball")]
+script = ExtResource("2_suelq")
+ball = NodePath("../Player")

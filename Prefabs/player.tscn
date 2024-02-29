@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bji3tgkrsfd0w"]
+
+[ext_resource type="Script" path="res://Scripts/goo_ball.gd" id="1_trfh2"]
+[ext_resource type="Texture2D" uid="uid://km7a0o6t4ld2" path="res://Sprites/Circle.png" id="2_j1drm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gd236"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p867p"]
+radius = 14.0357
+
+[sub_resource type="Gradient" id="Gradient_v7krg"]
+colors = PackedColorArray(1, 0.854902, 0.0352941, 1, 0.882353, 0.14902, 0, 1)
+
+[node name="CharacterBody2D" type="RigidBody2D" node_paths=PackedStringArray("aim_line")]
+physics_material_override = SubResource("PhysicsMaterial_gd236")
+lock_rotation = true
+script = ExtResource("1_trfh2")
+aim_line = NodePath("Aim Line")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_j1drm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_p867p")
+
+[node name="Aim Line" type="Line2D" parent="."]
+z_index = -1
+points = PackedVector2Array(0, 0, 0, 0)
+gradient = SubResource("Gradient_v7krg")
