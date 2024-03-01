@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://darbvxvl6l23i"]
+
+[sub_resource type="Gradient" id="Gradient_jb4c0"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f8opr"]
+gradient = SubResource("Gradient_jb4c0")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6itx7"]
+size = Vector2(24, 79)
+
+[node name="Human" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 80)
+texture = SubResource("GradientTexture1D_f8opr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_6itx7")

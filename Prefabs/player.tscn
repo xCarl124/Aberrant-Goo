@@ -11,10 +11,13 @@ radius = 14.0357
 [sub_resource type="Gradient" id="Gradient_v7krg"]
 colors = PackedColorArray(1, 0.854902, 0.0352941, 1, 0.882353, 0.14902, 0, 1)
 
-[node name="CharacterBody2D" type="RigidBody2D" node_paths=PackedStringArray("aim_line")]
+[node name="Player" type="RigidBody2D" node_paths=PackedStringArray("aim_line")]
 physics_material_override = SubResource("PhysicsMaterial_gd236")
 lock_rotation = true
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_trfh2")
+impulse_force = 700
 aim_line = NodePath("Aim Line")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -27,3 +30,5 @@ shape = SubResource("CircleShape2D_p867p")
 z_index = -1
 points = PackedVector2Array(0, 0, 0, 0)
 gradient = SubResource("Gradient_v7krg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

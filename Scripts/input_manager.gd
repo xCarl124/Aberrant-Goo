@@ -1,9 +1,19 @@
 class_name InputManager
 extends Node2D
 
+static var manager: InputManager
+
 var _start_point: Vector2
 var _is_clicking := false
 @export var ball: GooBall
+
+func _ready():
+	manager = self
+
+
+static func instance():
+	return manager
+
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("left_click"):
@@ -23,3 +33,7 @@ func _process(_delta):
 		var dir = (_start_point - current_point).normalized()
 		var distance = _start_point.distance_to(current_point)
 		ball.update_aim(dir, distance)
+
+
+func debug_test():
+	print_debug("Momazos diego")
