@@ -5,6 +5,7 @@ static var manager: InputManager
 
 var _start_point: Vector2
 var _is_clicking := false
+var creature: Node2D
 @export var ball: GooBall
 
 func _ready():
@@ -16,15 +17,22 @@ static func instance():
 
 
 func _unhandled_input(_event):
+	# Start tracking the mouse
 	if Input.is_action_just_pressed("left_click"):
+		print_debug("left click")
 		_start_point = get_global_mouse_position()
 		_is_clicking = true
-	if Input.is_action_just_released("left_click"):
+	# Stop tracking the mouse and shoot goo ball
+	if Input.is_action_just_released("left_click") and _is_clicking:
 		_is_clicking = false
 		var current_point: Vector2 = get_global_mouse_position()
 		var dir = (_start_point - current_point).normalized()
 		var distance = _start_point.distance_to(current_point)
 		ball.trow_ball(dir, distance)
+	# Stop tracking the mouse and cancel shoot
+	if Input.is_action_just_pressed("right_click"):
+		_is_clicking = false
+		ball.update_aim()
 
 
 func _process(_delta):

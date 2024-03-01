@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://m1wlpx4ysp74"]
+[gd_scene load_steps=7 format=3 uid="uid://m1wlpx4ysp74"]
 
 [ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_q3n65"]
 [ext_resource type="Script" path="res://Scripts/input_manager.gd" id="2_suelq"]
 [ext_resource type="PackedScene" uid="uid://darbvxvl6l23i" path="res://Prefabs/human.tscn" id="3_oiy5u"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_30xls"]
+[sub_resource type="Gradient" id="Gradient_5jqnj"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rhls7"]
+gradient = SubResource("Gradient_5jqnj")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ks6ph"]
 size = Vector2(364, 39)
@@ -17,7 +20,7 @@ scale = Vector2(3.12, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 scale = Vector2(365.5, 46)
-texture = SubResource("PlaceholderTexture2D_30xls")
+texture = SubResource("GradientTexture1D_rhls7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 1.5)
@@ -30,7 +33,7 @@ scale = Vector2(3.12, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
 scale = Vector2(365.5, 46)
-texture = SubResource("PlaceholderTexture2D_30xls")
+texture = SubResource("GradientTexture1D_rhls7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(0, 1.5)
@@ -43,7 +46,7 @@ scale = Vector2(3.12, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
 scale = Vector2(365.5, 46)
-texture = SubResource("PlaceholderTexture2D_30xls")
+texture = SubResource("GradientTexture1D_rhls7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 position = Vector2(0, 1.5)
@@ -57,4 +60,4 @@ script = ExtResource("2_suelq")
 ball = NodePath("../Player")
 
 [node name="Human" parent="." instance=ExtResource("3_oiy5u")]
-position = Vector2(827, 557)
+position = Vector2(1017, -131)

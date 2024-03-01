@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://km7a0o6t4ld2" path="res://Sprites/Circle.png" id="2_j1drm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gd236"]
+bounce = 0.1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p867p"]
 radius = 14.0357
