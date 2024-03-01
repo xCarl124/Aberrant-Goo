@@ -51,3 +51,5 @@ func _process(_delta):
 func set_creature(c):
 	print_debug("creature set: " + c.name)
 	creature = c
+	#creature.add_child(ball)
+	#ball.position = Vector2.ZERO

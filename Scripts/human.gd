@@ -30,5 +30,6 @@ func aberrate():
 	InputManager.instance().set_creature(self)
 	$Sprite2D.modulate = Color.WEB_PURPLE
 
+
 func destroy():
 	process_mode = Node.PROCESS_MODE_DISABLED

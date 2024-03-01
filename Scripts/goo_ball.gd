@@ -19,10 +19,13 @@ func update_aim(dir: Vector2 = Vector2.ZERO, distance: float = 0):
 func _on_body_entered(body):
 	if body is CharacterBody2D:
 		body.aberrate()
+		get_parent().remove_child(self)
+		body.add_child(self)
 		control_creature()
 
 
 func control_creature():
-	print_debug("control")
-	self.freeze = true
-	self.position = Vector2(5000, 5000)
+	$Hitbox.set_deferred("disabled", true)
+	set_deferred("freeze", true)
+	position = Vector2.ZERO
+	linear_velocity = Vector2.ZERO
