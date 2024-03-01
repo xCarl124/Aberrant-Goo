@@ -17,6 +17,12 @@ func update_aim(dir: Vector2 = Vector2.ZERO, distance: float = 0):
 
 
 func _on_body_entered(body):
-	var collision = get_colliding_bodies()
-	if collision[0] is PhysicsBody2D:
-		InputManager.instance().debug_test()
+	if body is CharacterBody2D:
+		body.aberrate()
+		control_creature()
+
+
+func control_creature():
+	print_debug("control")
+	self.freeze = true
+	self.position = Vector2(5000, 5000)

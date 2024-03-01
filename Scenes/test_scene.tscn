@@ -14,41 +14,41 @@ size = Vector2(364, 39)
 
 [node name="test scene" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(572, 627)
 scale = Vector2(3.12, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
 scale = Vector2(365.5, 46)
 texture = SubResource("GradientTexture1D_rhls7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_ks6ph")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="Wall" type="StaticBody2D" parent="."]
 position = Vector2(1132, 78)
 rotation = 1.5708
 scale = Vector2(3.12, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+[node name="Sprite2D" type="Sprite2D" parent="Wall"]
 scale = Vector2(365.5, 46)
 texture = SubResource("GradientTexture1D_rhls7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_ks6ph")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+[node name="Wall2" type="StaticBody2D" parent="."]
 position = Vector2(19, 80)
 rotation = 1.5708
 scale = Vector2(3.12, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+[node name="Sprite2D" type="Sprite2D" parent="Wall2"]
 scale = Vector2(365.5, 46)
 texture = SubResource("GradientTexture1D_rhls7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_ks6ph")
 
@@ -60,4 +60,4 @@ script = ExtResource("2_suelq")
 ball = NodePath("../Player")
 
 [node name="Human" parent="." instance=ExtResource("3_oiy5u")]
-position = Vector2(1017, -131)
+position = Vector2(1017, 446)

@@ -19,7 +19,6 @@ static func instance():
 func _unhandled_input(_event):
 	# Start tracking the mouse
 	if Input.is_action_just_pressed("left_click"):
-		print_debug("left click")
 		_start_point = get_global_mouse_position()
 		_is_clicking = true
 	# Stop tracking the mouse and shoot goo ball
@@ -36,12 +35,19 @@ func _unhandled_input(_event):
 
 
 func _process(_delta):
+	# Click holding
 	if _is_clicking:
 		var current_point: Vector2 = get_global_mouse_position()
 		var dir = (_start_point - current_point).normalized()
 		var distance = _start_point.distance_to(current_point)
 		ball.update_aim(dir, distance)
+	
+	if creature:
+		# Creature inputs
+		var dir = Input.get_axis("left_dir", "right_dir")
+		creature.set_direction(dir)
 
 
-func debug_test():
-	print_debug("Momazos diego")
+func set_creature(c):
+	print_debug("creature set: " + c.name)
+	creature = c
