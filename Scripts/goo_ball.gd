@@ -6,6 +6,8 @@ extends RigidBody2D
 
 func trow_ball(dir: Vector2, distance: float):
 	if linear_velocity.distance_to(Vector2.ZERO) <= 0.01:
+		await check_in_creature()
+		# Shoot the ball
 		apply_central_impulse(dir * clampf(distance / 150.0, 0, 1) * impulse_force)
 		update_aim()
 
@@ -29,3 +31,19 @@ func control_creature():
 	set_deferred("freeze", true)
 	position = Vector2.ZERO
 	linear_velocity = Vector2.ZERO
+
+
+func check_in_creature():
+	var parent = get_parent()
+	var root = get_tree().root.get_child(0)
+	if parent != root:
+		# Set root as parent
+		parent.remove_child(self)
+		root.add_child(self)
+		# Activate ball again
+		position = parent.position
+		$Hitbox.set_deferred("disabled", false)
+		set_deferred("freeze", false)
+		# Destroy creature
+		InputManager.instance().remove_creature()
+		parent.destroy()

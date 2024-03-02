@@ -33,3 +33,4 @@ func aberrate():
 
 func destroy():
 	process_mode = Node.PROCESS_MODE_DISABLED
+	queue_free()
