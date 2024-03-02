@@ -61,3 +61,6 @@ ball = NodePath("../Player")
 
 [node name="Human" parent="." instance=ExtResource("3_oiy5u")]
 position = Vector2(1017, 446)
+
+[node name="Human2" parent="." instance=ExtResource("3_oiy5u")]
+position = Vector2(681, 470)
