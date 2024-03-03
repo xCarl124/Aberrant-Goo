@@ -21,8 +21,8 @@ func update_aim(dir: Vector2 = Vector2.ZERO, distance: float = 0):
 func _on_body_entered(body):
 	if body is CharacterBody2D:
 		body.aberrate()
-		get_parent().remove_child(self)
-		body.add_child(self)
+		get_parent().call_deferred("remove_child", self)
+		body.call_deferred("add_child", self)
 		control_creature()
 
 

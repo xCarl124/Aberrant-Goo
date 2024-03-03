@@ -42,4 +42,5 @@ func set_door_button(b: DoorButton):
 
 
 func interact():
-	button.open_door()
+	if button:
+		button.open_door()

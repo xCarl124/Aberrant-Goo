@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4uvtjvhr77c"]
+
+[ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_a4ok8"]
+[ext_resource type="Script" path="res://Scripts/input_manager.gd" id="2_7k7gb"]
+[ext_resource type="PackedScene" uid="uid://gehx7ndlhboy" path="res://Prefabs/next_lvl_vent.tscn" id="3_dlcdn"]
+[ext_resource type="PackedScene" uid="uid://iau8h24trsoe" path="res://node_2d.tscn" id="4_kwh6a"]
+
+[node name="Level 1" type="Node2D"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(16, 0)
+
+[node name="Sprite" type="Polygon2D" parent="Ground"]
+polygon = PackedVector2Array(-32, 0, 40, 0, 40, 576, 1024, 576, 1024, 0, 1144, 0, 1144, 704, -32, 704)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+polygon = PackedVector2Array(-32, 0, 40, 0, 40, 576, 1024, 576, 1024, 0, 1144, 0, 1144, 704, -32, 704)
+
+[node name="Player" parent="." instance=ExtResource("1_a4ok8")]
+position = Vector2(96, 328)
+
+[node name="InputManager" type="Node2D" parent="."]
+script = ExtResource("2_7k7gb")
+
+[node name="Next lvl vent" parent="." instance=ExtResource("3_dlcdn")]
+position = Vector2(1040, 480)
+next_lvl = ExtResource("4_kwh6a")

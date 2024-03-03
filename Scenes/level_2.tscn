@@ -3,20 +3,20 @@
 [ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_p2eul"]
 [ext_resource type="Script" path="res://Scripts/input_manager.gd" id="2_yhegy"]
 [ext_resource type="PackedScene" uid="uid://gehx7ndlhboy" path="res://Prefabs/next_lvl_vent.tscn" id="3_m5apt"]
-[ext_resource type="PackedScene" uid="uid://m1wlpx4ysp74" path="res://Scenes/test_scene.tscn" id="4_veli4"]
+[ext_resource type="PackedScene" uid="uid://kco14wsxykqb" path="res://Scenes/level_3.tscn" id="4_yxtlg"]
 
-[sub_resource type="Gradient" id="Gradient_b8i1s"]
+[sub_resource type="Gradient" id="Gradient_0abe4"]
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_1dkr5"]
-gradient = SubResource("Gradient_b8i1s")
+gradient = SubResource("Gradient_0abe4")
 width = 48
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s47sh"]
 size = Vector2(87.5, 16)
 
-[node name="Node2D" type="Node2D"]
+[node name="Level 2" type="Node2D"]
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(16, 0)
@@ -45,4 +45,4 @@ script = ExtResource("2_yhegy")
 
 [node name="Next lvl vent" parent="." instance=ExtResource("3_m5apt")]
 position = Vector2(1042, 374)
-next_lvl = ExtResource("4_veli4")
+next_lvl = ExtResource("4_yxtlg")

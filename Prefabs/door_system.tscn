@@ -23,7 +23,7 @@ gradient = SubResource("Gradient_k38en")
 width = 20
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rb4my"]
-size = Vector2(19.5, 91)
+size = Vector2(16, 96)
 
 [node name="Door System" type="Node2D"]
 
@@ -48,7 +48,8 @@ texture = SubResource("GradientTexture1D_s8pwf")
 [node name="Door" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Door"]
-scale = Vector2(0.980469, 91)
+position = Vector2(1.78814e-07, 1.19209e-07)
+scale = Vector2(0.8, 96)
 texture = SubResource("GradientTexture1D_fqrxa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]

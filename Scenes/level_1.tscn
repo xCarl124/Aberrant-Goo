@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_4wdpb"]
 [ext_resource type="Script" path="res://Scripts/input_manager.gd" id="2_xe3h3"]
 [ext_resource type="PackedScene" uid="uid://gehx7ndlhboy" path="res://Prefabs/next_lvl_vent.tscn" id="3_7l3i7"]
-[ext_resource type="PackedScene" uid="uid://d28lv2tkf6v2q" path="res://Scenes/level_2.tscn" id="4_5mxa3"]
+[ext_resource type="PackedScene" uid="uid://d28lv2tkf6v2q" path="res://Scenes/level_2.tscn" id="4_abu6y"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Level 1" type="Node2D"]
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(16, 0)
@@ -24,4 +24,4 @@ script = ExtResource("2_xe3h3")
 
 [node name="Next lvl vent" parent="." instance=ExtResource("3_7l3i7")]
 position = Vector2(1040, 480)
-next_lvl = ExtResource("4_5mxa3")
+next_lvl = ExtResource("4_abu6y")
