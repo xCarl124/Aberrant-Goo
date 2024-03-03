@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://gehx7ndlhboy"]
+
+[ext_resource type="Script" path="res://Scripts/vent.gd" id="1_3i5e5"]
+
+[sub_resource type="Gradient" id="Gradient_2nc1o"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.807843, 0.835294, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3b2i4"]
+gradient = SubResource("Gradient_2nc1o")
+width = 50
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwd18"]
+size = Vector2(20, 76)
+
+[node name="Next lvl vent" type="Area2D"]
+script = ExtResource("1_3i5e5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, -0.499999)
+scale = Vector2(0.4, 77)
+texture = SubResource("GradientTexture1D_3b2i4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_lwd18")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

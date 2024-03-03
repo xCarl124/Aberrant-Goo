@@ -6,10 +6,11 @@ static var manager: InputManager
 var _start_point: Vector2
 var _is_clicking := false
 var creature: Node2D
-@export var ball: GooBall
+var ball: GooBall
 
 func _ready():
 	manager = self
+	ball = get_node("../Player")
 
 
 static func instance():
@@ -46,6 +47,8 @@ func _process(_delta):
 		# Creature inputs
 		var dir = Input.get_axis("left_dir", "right_dir")
 		creature.set_direction(dir)
+		if Input.is_action_just_pressed("interact"):
+			creature.interact()
 
 
 func set_creature(c):

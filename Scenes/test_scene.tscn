@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://m1wlpx4ysp74"]
+[gd_scene load_steps=9 format=3 uid="uid://m1wlpx4ysp74"]
 
 [ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_q3n65"]
 [ext_resource type="Script" path="res://Scripts/input_manager.gd" id="2_suelq"]
 [ext_resource type="PackedScene" uid="uid://darbvxvl6l23i" path="res://Prefabs/human.tscn" id="3_oiy5u"]
+[ext_resource type="PackedScene" uid="uid://gehx7ndlhboy" path="res://Prefabs/next_lvl_vent.tscn" id="4_nv7ku"]
+[ext_resource type="PackedScene" uid="uid://docmxvtktop5c" path="res://Scenes/level_1.tscn" id="5_f5kys"]
 
 [sub_resource type="Gradient" id="Gradient_5jqnj"]
 
@@ -55,12 +57,12 @@ shape = SubResource("RectangleShape2D_ks6ph")
 [node name="Player" parent="." instance=ExtResource("1_q3n65")]
 position = Vector2(116, 119)
 
-[node name="Input Manager" type="Node2D" parent="." node_paths=PackedStringArray("ball")]
+[node name="Input Manager" type="Node2D" parent="."]
 script = ExtResource("2_suelq")
-ball = NodePath("../Player")
-
-[node name="Human" parent="." instance=ExtResource("3_oiy5u")]
-position = Vector2(1017, 446)
 
 [node name="Human2" parent="." instance=ExtResource("3_oiy5u")]
 position = Vector2(681, 470)
+
+[node name="Next lvl vent" parent="." instance=ExtResource("4_nv7ku")]
+position = Vector2(1110, 527)
+next_lvl = ExtResource("5_f5kys")
