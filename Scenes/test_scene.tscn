@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://m1wlpx4ysp74"]
+[gd_scene load_steps=14 format=3 uid="uid://m1wlpx4ysp74"]
 
 [ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_q3n65"]
 [ext_resource type="Script" path="res://Scripts/input_manager.gd" id="2_suelq"]
@@ -6,72 +6,134 @@
 [ext_resource type="PackedScene" uid="uid://gehx7ndlhboy" path="res://Prefabs/next_lvl_vent.tscn" id="4_nv7ku"]
 [ext_resource type="PackedScene" uid="uid://docmxvtktop5c" path="res://Scenes/level_1.tscn" id="5_f5kys"]
 [ext_resource type="PackedScene" uid="uid://b5w8gh1m76o0k" path="res://Prefabs/tree.tscn" id="6_m0lka"]
+[ext_resource type="PackedScene" uid="uid://cbth1jnqci1ki" path="res://Prefabs/door_system.tscn" id="7_8v7jg"]
 
 [sub_resource type="Gradient" id="Gradient_5jqnj"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.473976, 0.473976, 0.473976, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_rhls7"]
 gradient = SubResource("Gradient_5jqnj")
+width = 50
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ks6ph"]
-size = Vector2(364, 39)
+size = Vector2(364, 46)
+
+[sub_resource type="Gradient" id="Gradient_13g6r"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jfey8"]
+gradient = SubResource("Gradient_13g6r")
+width = 50
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ovtc"]
+size = Vector2(49.359, 10)
 
 [node name="test scene" type="Node2D"]
 
-[node name="Floor" type="StaticBody2D" parent="."]
+[node name="Floors and walls" type="Node2D" parent="."]
+
+[node name="Floor" type="StaticBody2D" parent="Floors and walls"]
 position = Vector2(572, 627)
 scale = Vector2(3.12, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor"]
-scale = Vector2(365.5, 46)
+[node name="Sprite2D" type="Sprite2D" parent="Floors and walls/Floor"]
+scale = Vector2(7.946, 40)
 texture = SubResource("GradientTexture1D_rhls7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors and walls/Floor"]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_ks6ph")
 
-[node name="Wall" type="StaticBody2D" parent="."]
+[node name="Wall" type="StaticBody2D" parent="Floors and walls"]
 position = Vector2(1132, 78)
 rotation = 1.5708
 scale = Vector2(3.12, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="Wall"]
-scale = Vector2(365.5, 46)
+[node name="Sprite2D" type="Sprite2D" parent="Floors and walls/Wall"]
+scale = Vector2(7.946, 40)
 texture = SubResource("GradientTexture1D_rhls7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors and walls/Wall"]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_ks6ph")
 
-[node name="Wall2" type="StaticBody2D" parent="."]
+[node name="Up floor 1" type="StaticBody2D" parent="Floors and walls"]
+position = Vector2(1288, 361)
+scale = Vector2(3.12, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floors and walls/Up floor 1"]
+scale = Vector2(7.946, 40)
+texture = SubResource("GradientTexture1D_rhls7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors and walls/Up floor 1"]
+position = Vector2(-16.6667, 2)
+shape = SubResource("RectangleShape2D_ks6ph")
+
+[node name="Up Floor 2" type="StaticBody2D" parent="Floors and walls"]
+position = Vector2(-266, 361)
+scale = Vector2(3.12, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floors and walls/Up Floor 2"]
+scale = Vector2(7.946, 40)
+texture = SubResource("GradientTexture1D_rhls7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors and walls/Up Floor 2"]
+position = Vector2(16.9872, 2)
+shape = SubResource("RectangleShape2D_ks6ph")
+
+[node name="Wall2" type="StaticBody2D" parent="Floors and walls"]
 position = Vector2(19, 80)
 rotation = 1.5708
 scale = Vector2(3.12, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="Wall2"]
-scale = Vector2(365.5, 46)
+[node name="Sprite2D" type="Sprite2D" parent="Floors and walls/Wall2"]
+scale = Vector2(7.946, 40)
 texture = SubResource("GradientTexture1D_rhls7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
-position = Vector2(0, 1.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors and walls/Wall2"]
+position = Vector2(5.72205e-06, 1.90735e-06)
 shape = SubResource("RectangleShape2D_ks6ph")
 
 [node name="Player" parent="." instance=ExtResource("1_q3n65")]
-position = Vector2(116, 119)
+position = Vector2(116, 568)
 
 [node name="Input Manager" type="Node2D" parent="."]
 script = ExtResource("2_suelq")
 
 [node name="Human2" parent="." instance=ExtResource("3_oiy5u")]
-position = Vector2(681, 470)
+position = Vector2(374, 558)
+
+[node name="Human3" parent="." instance=ExtResource("3_oiy5u")]
+position = Vector2(788, 296)
 
 [node name="Next lvl vent" parent="." instance=ExtResource("4_nv7ku")]
 position = Vector2(1110, 527)
 next_lvl = ExtResource("5_f5kys")
 
 [node name="Tree" parent="." instance=ExtResource("6_m0lka")]
-position = Vector2(579, 544)
+position = Vector2(529, 540)
 
 [node name="Platform" parent="Tree" index="2"]
-position = Vector2(-120, -79)
+position = Vector2(-83, -79)
+
+[node name="Door System" parent="." instance=ExtResource("7_8v7jg")]
+position = Vector2(785, 560)
+
+[node name="laser test" type="StaticBody2D" parent="."]
+position = Vector2(980, 263)
+rotation = 1.5708
+scale = Vector2(3.12, 1)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="laser test"]
+scale = Vector2(1, 10.44)
+texture = SubResource("GradientTexture1D_jfey8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="laser test"]
+position = Vector2(-7.62939e-06, 0)
+shape = SubResource("RectangleShape2D_2ovtc")
 
 [editable path="Tree"]

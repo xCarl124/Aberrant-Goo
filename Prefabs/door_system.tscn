@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://cbth1jnqci1ki"]
+
+[ext_resource type="Script" path="res://Scripts/door_button.gd" id="1_6d7f4"]
+[ext_resource type="Texture2D" uid="uid://6i3g6445qq1s" path="res://Sprites/Button.png" id="1_gm1fc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kja1"]
+size = Vector2(18, 32)
+
+[sub_resource type="Gradient" id="Gradient_6irkt"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0.555629, 0.179033, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_s8pwf"]
+gradient = SubResource("Gradient_6irkt")
+width = 5
+
+[sub_resource type="Gradient" id="Gradient_k38en"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.309976, 0.490182, 0.382255, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fqrxa"]
+gradient = SubResource("Gradient_k38en")
+width = 20
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rb4my"]
+size = Vector2(19.5, 91)
+
+[node name="Door System" type="Node2D"]
+
+[node name="Button" type="Area2D" parent="." node_paths=PackedStringArray("door_hitbox", "door_sprite")]
+position = Vector2(-119, -1)
+script = ExtResource("1_6d7f4")
+door_hitbox = NodePath("../Door/CollisionShape2D")
+door_sprite = NodePath("../Door/Sprite2D")
+
+[node name="Btn_sprite" type="Sprite2D" parent="Button"]
+texture = ExtResource("1_gm1fc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button"]
+shape = SubResource("RectangleShape2D_6kja1")
+
+[node name="Interaction_sprite" type="Sprite2D" parent="Button"]
+visible = false
+position = Vector2(0, -33.875)
+scale = Vector2(1, 22.25)
+texture = SubResource("GradientTexture1D_s8pwf")
+
+[node name="Door" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Door"]
+scale = Vector2(0.980469, 91)
+texture = SubResource("GradientTexture1D_fqrxa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+shape = SubResource("RectangleShape2D_rb4my")
+
+[connection signal="body_entered" from="Button" to="Button" method="_on_body_entered"]
+[connection signal="body_exited" from="Button" to="Button" method="_on_body_exited"]

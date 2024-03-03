@@ -1,3 +1,4 @@
+class_name Human
 extends CharacterBody2D
 
 
@@ -7,6 +8,7 @@ const JUMP_VELOCITY = -400.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var _direction: int = 0
+var button: DoorButton
 
 
 func _physics_process(delta):
@@ -33,3 +35,11 @@ func aberrate():
 
 func destroy():
 	queue_free()
+
+
+func set_door_button(b: DoorButton):
+	button = b
+
+
+func interact():
+	button.open_door()
