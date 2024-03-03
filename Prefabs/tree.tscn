@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5w8gh1m76o0k"]
+
+[ext_resource type="Script" path="res://Scripts/tree.gd" id="1_3xerp"]
+
+[sub_resource type="Gradient" id="Gradient_ki5rt"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nb8ew"]
+gradient = SubResource("Gradient_ki5rt")
+width = 50
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8cuy"]
+size = Vector2(43, 131)
+
+[sub_resource type="Gradient" id="Gradient_4aeg3"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.504509, 0, 0.215231, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bsktc"]
+gradient = SubResource("Gradient_4aeg3")
+width = 50
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jlna"]
+size = Vector2(144, 29)
+
+[node name="Tree" type="Node2D"]
+script = ExtResource("1_3xerp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.466667, 0.192157, 0, 1)
+position = Vector2(0, -2)
+scale = Vector2(1, 134)
+texture = SubResource("GradientTexture1D_nb8ew")
+
+[node name="Aberration Trigger" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aberration Trigger"]
+position = Vector2(0.5, -3.5)
+shape = SubResource("RectangleShape2D_l8cuy")
+
+[node name="Platform" type="StaticBody2D" parent="."]
+process_mode = 4
+position = Vector2(-74, -55)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform"]
+visible = false
+position = Vector2(5.5, 0.5)
+scale = Vector2(2.9, 29)
+texture = SubResource("GradientTexture1D_bsktc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+visible = false
+position = Vector2(5, 1.5)
+shape = SubResource("RectangleShape2D_4jlna")
+one_way_collision = true
+one_way_collision_margin = 16.0
+
+[connection signal="body_entered" from="Aberration Trigger" to="." method="_on_trigger_entered"]

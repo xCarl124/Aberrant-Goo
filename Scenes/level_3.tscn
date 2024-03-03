@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://kco14wsxykqb"]
+
+[ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_w7src"]
+[ext_resource type="Script" path="res://Scripts/input_manager.gd" id="2_ufw7g"]
+[ext_resource type="PackedScene" uid="uid://gehx7ndlhboy" path="res://Prefabs/next_lvl_vent.tscn" id="3_2yq5h"]
+[ext_resource type="PackedScene" uid="uid://d28lv2tkf6v2q" path="res://Scenes/level_2.tscn" id="4_q6tpv"]
+[ext_resource type="PackedScene" uid="uid://b5w8gh1m76o0k" path="res://Prefabs/tree.tscn" id="5_a8k4c"]
+
+[sub_resource type="Gradient" id="Gradient_pnvbf"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ccg0j"]
+gradient = SubResource("Gradient_pnvbf")
+width = 48
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4sk7"]
+size = Vector2(87.5, 16)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(16, 0)
+
+[node name="Sprite" type="Polygon2D" parent="Ground"]
+polygon = PackedVector2Array(-32, -14, 1044, -10, 1058, 26, 270, 22, 268, 370, 574, 370, 574, 222, 592, 222, 592, 398, 398, 398, 398, 576, 1024, 576, 1024, 322, 770, 322, 770, 288, 1024, 288, 1024, -14, 1142, -14, 1144, 704, -32, 704)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+polygon = PackedVector2Array(-34, -16, 1054, -10, 1056, 24, 270, 22, 268, 370, 574, 370, 574, 222, 592, 222, 592, 398, 398, 400, 398, 576, 1024, 576, 1024, 322, 770, 322, 770, 288, 1024, 288, 1022, -14, 1142, -16, 1144, 704, -32, 704)
+
+[node name="platform" type="Sprite2D" parent="Ground"]
+position = Vector2(510.64, 132.42)
+scale = Vector2(2.36, 24.84)
+texture = SubResource("GradientTexture1D_ccg0j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(510.64, 132.796)
+scale = Vector2(1.28, 1.50545)
+shape = SubResource("RectangleShape2D_b4sk7")
+
+[node name="platform2" type="Sprite2D" parent="Ground"]
+position = Vector2(802.64, 130.42)
+scale = Vector2(2.36, 24.84)
+texture = SubResource("GradientTexture1D_ccg0j")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground"]
+position = Vector2(802.64, 130.796)
+scale = Vector2(1.28, 1.50545)
+shape = SubResource("RectangleShape2D_b4sk7")
+
+[node name="Player" parent="." instance=ExtResource("1_w7src")]
+position = Vector2(494, 535)
+
+[node name="InputManager" type="Node2D" parent="."]
+script = ExtResource("2_ufw7g")
+
+[node name="Next lvl vent" parent="." instance=ExtResource("3_2yq5h")]
+position = Vector2(1037, 68)
+next_lvl = ExtResource("4_q6tpv")
+
+[node name="Tree" parent="." instance=ExtResource("5_a8k4c")]
+position = Vector2(830, 511)
+
+[node name="Platform" parent="Tree" index="2"]
+position = Vector2(-114, -87)
+
+[node name="Tree2" parent="." instance=ExtResource("5_a8k4c")]
+position = Vector2(326, 306)
+
+[node name="Platform" parent="Tree2" index="2"]
+position = Vector2(76, -86)
+
+[editable path="Tree"]
+[editable path="Tree2"]
