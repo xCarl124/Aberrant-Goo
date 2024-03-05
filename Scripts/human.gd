@@ -10,6 +10,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var _direction: int = 0
 var button: DoorButton
 
+@onready var sprite = $Sprite
+
 
 func _physics_process(delta):
 	# Gravity.
@@ -26,11 +28,13 @@ func _physics_process(delta):
 
 func set_direction(dir: int):
 	_direction = dir
+	if dir != 0:
+		sprite.scale.x = dir * 2
 
 
 func aberrate():
 	InputManager.instance().set_creature(self)
-	$Sprite2D.modulate = Color.WEB_PURPLE
+	sprite.modulate = Color.WEB_PURPLE
 
 
 func destroy():

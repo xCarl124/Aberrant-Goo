@@ -1,25 +1,76 @@
-[gd_scene load_steps=5 format=3 uid="uid://darbvxvl6l23i"]
+[gd_scene load_steps=6 format=3 uid="uid://darbvxvl6l23i"]
 
 [ext_resource type="Script" path="res://Scripts/human.gd" id="1_1hok7"]
-
-[sub_resource type="Gradient" id="Gradient_jb4c0"]
-offsets = PackedFloat32Array(0.038961)
-colors = PackedColorArray(1, 0.848903, 0.850217, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_f8opr"]
-gradient = SubResource("Gradient_jb4c0")
+[ext_resource type="Texture2D" uid="uid://5h3geq668umv" path="res://Sprites/Human/Limb.png" id="2_aqlv0"]
+[ext_resource type="Texture2D" uid="uid://bxgf0ak0uggif" path="res://Sprites/Human/Head.png" id="3_l8xsi"]
+[ext_resource type="Texture2D" uid="uid://dacy24nqptlfd" path="res://Sprites/Human/Torso.png" id="4_a7fpg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6itx7"]
-size = Vector2(24, 79)
+size = Vector2(20, 67)
 
 [node name="Human" type="CharacterBody2D"]
 script = ExtResource("1_1hok7")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 80)
-texture = SubResource("GradientTexture1D_f8opr")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, 0.5)
+position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_6itx7")
+
+[node name="Sprite" type="Node2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="L Arm" type="Sprite2D" parent="Sprite"]
+modulate = Color(1, 1, 0.807843, 1)
+position = Vector2(3.5, -4.5)
+rotation = 0.314159
+texture = ExtResource("2_aqlv0")
+offset = Vector2(0, 3.325)
+
+[node name="L Arm down" type="Sprite2D" parent="Sprite/L Arm"]
+position = Vector2(0, 5.5)
+rotation = -1.40324
+texture = ExtResource("2_aqlv0")
+offset = Vector2(0, 3.325)
+
+[node name="L Leg" type="Sprite2D" parent="Sprite"]
+modulate = Color(0.823529, 0.937255, 0.698039, 1)
+position = Vector2(2, 5.5)
+texture = ExtResource("2_aqlv0")
+offset = Vector2(0, 3.325)
+
+[node name="L Leg down" type="Sprite2D" parent="Sprite/L Leg"]
+position = Vector2(0, 5.5)
+texture = ExtResource("2_aqlv0")
+offset = Vector2(0, 3.325)
+
+[node name="R Leg" type="Sprite2D" parent="Sprite"]
+modulate = Color(0.823529, 0.937255, 0.698039, 1)
+position = Vector2(-2, 5.5)
+texture = ExtResource("2_aqlv0")
+offset = Vector2(0, 3.325)
+
+[node name="R Leg down" type="Sprite2D" parent="Sprite/R Leg"]
+position = Vector2(0, 5.5)
+texture = ExtResource("2_aqlv0")
+offset = Vector2(0, 3.325)
+
+[node name="Head" type="Sprite2D" parent="Sprite"]
+position = Vector2(0, -6)
+texture = ExtResource("3_l8xsi")
+offset = Vector2(0, -5)
+
+[node name="Torso" type="Sprite2D" parent="Sprite"]
+modulate = Color(0.886275, 1, 1, 1)
+texture = ExtResource("4_a7fpg")
+
+[node name="R Arm" type="Sprite2D" parent="Sprite"]
+modulate = Color(1, 1, 0.807843, 1)
+position = Vector2(-3.5, -4.5)
+rotation = 0.314159
+texture = ExtResource("2_aqlv0")
+offset = Vector2(0, 3.325)
+
+[node name="R Arm down" type="Sprite2D" parent="Sprite/R Arm"]
+position = Vector2(0, 5.5)
+rotation = -1.40324
+texture = ExtResource("2_aqlv0")
+offset = Vector2(0, 3.325)

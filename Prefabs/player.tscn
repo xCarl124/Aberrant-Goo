@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bji3tgkrsfd0w"]
+[gd_scene load_steps=7 format=3 uid="uid://bji3tgkrsfd0w"]
 
 [ext_resource type="Script" path="res://Scripts/goo_ball.gd" id="1_trfh2"]
 [ext_resource type="Texture2D" uid="uid://km7a0o6t4ld2" path="res://Sprites/Circle.png" id="2_j1drm"]
+[ext_resource type="Texture2D" uid="uid://dakuw86b0l51w" path="res://Sprites/Goo Face.png" id="3_2ix6p"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gd236"]
 bounce = 0.1
@@ -23,7 +24,8 @@ script = ExtResource("1_trfh2")
 impulse_force = 700
 aim_line = NodePath("Aim Line")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Ball Sprite" type="Sprite2D" parent="."]
+modulate = Color(0.14902, 0.168627, 0.266667, 1)
 texture = ExtResource("2_j1drm")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
@@ -33,5 +35,20 @@ shape = SubResource("CircleShape2D_p867p")
 z_index = -1
 points = PackedVector2Array(0, 0, 0, 0)
 gradient = SubResource("Gradient_v7krg")
+
+[node name="Face" type="Node2D" parent="."]
+
+[node name="GooFace" type="Sprite2D" parent="Face"]
+position = Vector2(9, -2)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_2ix6p")
+
+[node name="Raycasts" type="Node2D" parent="."]
+
+[node name="Right" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(16, 0)
+
+[node name="Down" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(0, 16)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

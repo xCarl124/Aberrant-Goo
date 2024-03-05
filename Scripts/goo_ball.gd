@@ -4,6 +4,21 @@ extends RigidBody2D
 @export var impulse_force: int = 400
 @export var aim_line: Line2D
 
+@onready var hitbox: CollisionShape2D = $Hitbox
+@onready var ball_sprite = $"Ball Sprite"
+@onready var face = $Face
+@onready var ray_right: RayCast2D = $Raycasts/Right
+@onready var ray_down: RayCast2D = $Raycasts/Down
+
+
+func _process(_delta):
+	var angle: float = 0
+	if abs(linear_velocity) > Vector2(0.1, 0.1):
+		angle = linear_velocity.angle()
+		face.get_child(0).scale.y = sign(linear_velocity.x)
+	
+	face.rotation = angle
+
 func trow_ball(dir: Vector2, distance: float):
 	if linear_velocity.distance_to(Vector2.ZERO) <= 0.01:
 		check_in_creature()
@@ -27,9 +42,9 @@ func _on_body_entered(body):
 
 
 func control_creature():
-	$Hitbox.set_deferred("disabled", true)
+	hitbox.set_deferred("disabled", true)
 	set_deferred("freeze", true)
-	$Sprite2D.visible = false
+	ball_sprite.visible = false
 	position = Vector2.ZERO
 	linear_velocity = Vector2.ZERO
 
@@ -43,9 +58,9 @@ func check_in_creature():
 		root.add_child(self)
 		# Activate ball again
 		position = parent.position
-		$Hitbox.set_deferred("disabled", false)
+		hitbox.set_deferred("disabled", false)
 		set_deferred("freeze", false)
-		$Sprite2D.visible = true	# Change later when better graphics
+		ball_sprite.visible = true	# Change later when better graphics
 		# Destroy creature
 		InputManager.instance().remove_creature()
 		parent.destroy()
