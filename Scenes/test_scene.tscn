@@ -93,10 +93,10 @@ position = Vector2(116, 568)
 script = ExtResource("2_suelq")
 
 [node name="Human2" parent="." instance=ExtResource("3_oiy5u")]
-position = Vector2(374, 558)
+position = Vector2(377, 503)
 
 [node name="Human3" parent="." instance=ExtResource("3_oiy5u")]
-position = Vector2(788, 296)
+position = Vector2(791, 241)
 
 [node name="Next lvl vent" parent="." instance=ExtResource("4_nv7ku")]
 position = Vector2(1110, 527)

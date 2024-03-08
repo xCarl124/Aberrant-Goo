@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxgf0ak0uggif"
-path="res://.godot/imported/Head.png-b6463d9f3ddedb056ca36ff9906095d4.ctex"
+uid="uid://b8rbd4nbru6k2"
+path="res://.godot/imported/Tentacle platform.png-de4eff0e351480564ed696b888de3310.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Human/Head.png"
-dest_files=["res://.godot/imported/Head.png-b6463d9f3ddedb056ca36ff9906095d4.ctex"]
+source_file="res://Sprites/Tentacle platform.png"
+dest_files=["res://.godot/imported/Tentacle platform.png-de4eff0e351480564ed696b888de3310.ctex"]
 
 [params]
 

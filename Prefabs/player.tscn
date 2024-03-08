@@ -1,14 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://bji3tgkrsfd0w"]
+[gd_scene load_steps=8 format=3 uid="uid://bji3tgkrsfd0w"]
 
 [ext_resource type="Script" path="res://Scripts/goo_ball.gd" id="1_trfh2"]
-[ext_resource type="Texture2D" uid="uid://km7a0o6t4ld2" path="res://Sprites/Circle.png" id="2_j1drm"]
 [ext_resource type="Texture2D" uid="uid://dakuw86b0l51w" path="res://Sprites/Goo Face.png" id="3_2ix6p"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gd236"]
 bounce = 0.1
 
+[sub_resource type="Gradient" id="Gradient_c5lbe"]
+offsets = PackedFloat32Array(0.68, 0.73)
+colors = PackedColorArray(0.0941176, 0.0784314, 0.145098, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ies8t"]
+gradient = SubResource("Gradient_c5lbe")
+width = 50
+height = 50
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_p867p"]
-radius = 14.0357
+radius = 18.0
 
 [sub_resource type="Gradient" id="Gradient_v7krg"]
 colors = PackedColorArray(1, 0.854902, 0.0352941, 1, 0.882353, 0.14902, 0, 1)
@@ -21,14 +32,15 @@ lock_rotation = true
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_trfh2")
-impulse_force = 700
+impulse_force = 720
 aim_line = NodePath("Aim Line")
 
 [node name="Ball Sprite" type="Sprite2D" parent="."]
 modulate = Color(0.14902, 0.168627, 0.266667, 1)
-texture = ExtResource("2_j1drm")
+texture = SubResource("GradientTexture2D_ies8t")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_p867p")
 
 [node name="Aim Line" type="Line2D" parent="."]
@@ -37,18 +49,11 @@ points = PackedVector2Array(0, 0, 0, 0)
 gradient = SubResource("Gradient_v7krg")
 
 [node name="Face" type="Node2D" parent="."]
+z_index = 1
 
 [node name="GooFace" type="Sprite2D" parent="Face"]
-position = Vector2(9, -2)
-scale = Vector2(1.2, 1.2)
+position = Vector2(13, -2)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_2ix6p")
-
-[node name="Raycasts" type="Node2D" parent="."]
-
-[node name="Right" type="RayCast2D" parent="Raycasts"]
-target_position = Vector2(16, 0)
-
-[node name="Down" type="RayCast2D" parent="Raycasts"]
-target_position = Vector2(0, 16)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

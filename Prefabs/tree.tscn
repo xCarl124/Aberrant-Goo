@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5w8gh1m76o0k"]
+[gd_scene load_steps=7 format=3 uid="uid://b5w8gh1m76o0k"]
 
 [ext_resource type="Script" path="res://Scripts/tree.gd" id="1_3xerp"]
+[ext_resource type="Texture2D" uid="uid://b8rbd4nbru6k2" path="res://Sprites/Tentacle platform.png" id="2_wh1jl"]
 
 [sub_resource type="Gradient" id="Gradient_ki5rt"]
 offsets = PackedFloat32Array(1)
@@ -13,16 +14,8 @@ width = 50
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8cuy"]
 size = Vector2(43, 131)
 
-[sub_resource type="Gradient" id="Gradient_4aeg3"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.504509, 0, 0.215231, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_bsktc"]
-gradient = SubResource("Gradient_4aeg3")
-width = 50
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jlna"]
-size = Vector2(144, 29)
+size = Vector2(187, 22)
 
 [node name="Tree" type="Node2D"]
 script = ExtResource("1_3xerp")
@@ -46,13 +39,12 @@ position = Vector2(-74, -55)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform"]
 visible = false
-position = Vector2(5.5, 0.5)
-scale = Vector2(2.9, 29)
-texture = SubResource("GradientTexture1D_bsktc")
+scale = Vector2(2, 2)
+texture = ExtResource("2_wh1jl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 visible = false
-position = Vector2(5, 1.5)
+position = Vector2(-0.5, -2)
 shape = SubResource("RectangleShape2D_4jlna")
 one_way_collision = true
 one_way_collision_margin = 16.0

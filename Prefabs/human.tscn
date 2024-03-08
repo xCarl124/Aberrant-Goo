@@ -2,75 +2,80 @@
 
 [ext_resource type="Script" path="res://Scripts/human.gd" id="1_1hok7"]
 [ext_resource type="Texture2D" uid="uid://5h3geq668umv" path="res://Sprites/Human/Limb.png" id="2_aqlv0"]
-[ext_resource type="Texture2D" uid="uid://bxgf0ak0uggif" path="res://Sprites/Human/Head.png" id="3_l8xsi"]
+[ext_resource type="Texture2D" uid="uid://dwnajcqkwj35t" path="res://Sprites/Human/Head Normal.png" id="3_pfgi1"]
 [ext_resource type="Texture2D" uid="uid://dacy24nqptlfd" path="res://Sprites/Human/Torso.png" id="4_a7fpg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6itx7"]
-size = Vector2(20, 67)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8u3o"]
+radius = 30.0
+height = 195.0
 
 [node name="Human" type="CharacterBody2D"]
 script = ExtResource("1_1hok7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.5)
-shape = SubResource("RectangleShape2D_6itx7")
 
 [node name="Sprite" type="Node2D" parent="."]
 scale = Vector2(2, 2)
 
 [node name="L Arm" type="Sprite2D" parent="Sprite"]
-modulate = Color(1, 1, 0.807843, 1)
-position = Vector2(3.5, -4.5)
+modulate = Color(0.74902, 1, 1, 1)
+position = Vector2(8, -9)
 rotation = 0.314159
 texture = ExtResource("2_aqlv0")
 offset = Vector2(0, 3.325)
 
 [node name="L Arm down" type="Sprite2D" parent="Sprite/L Arm"]
-position = Vector2(0, 5.5)
+position = Vector2(5.4438, 11.9002)
 rotation = -1.40324
 texture = ExtResource("2_aqlv0")
 offset = Vector2(0, 3.325)
 
 [node name="L Leg" type="Sprite2D" parent="Sprite"]
-modulate = Color(0.823529, 0.937255, 0.698039, 1)
-position = Vector2(2, 5.5)
+modulate = Color(0, 0.596078, 0.796078, 1)
+position = Vector2(3.88213, 19.0979)
+rotation = -0.10472
 texture = ExtResource("2_aqlv0")
 offset = Vector2(0, 3.325)
 
 [node name="L Leg down" type="Sprite2D" parent="Sprite/L Leg"]
-position = Vector2(0, 5.5)
+position = Vector2(-0.431624, 15.54)
+rotation = 0.20944
 texture = ExtResource("2_aqlv0")
 offset = Vector2(0, 3.325)
 
 [node name="R Leg" type="Sprite2D" parent="Sprite"]
-modulate = Color(0.823529, 0.937255, 0.698039, 1)
-position = Vector2(-2, 5.5)
+modulate = Color(0, 0.596078, 0.796078, 1)
+position = Vector2(-3.11787, 19.0979)
+rotation = -0.10472
 texture = ExtResource("2_aqlv0")
 offset = Vector2(0, 3.325)
 
 [node name="R Leg down" type="Sprite2D" parent="Sprite/R Leg"]
-position = Vector2(0, 5.5)
+position = Vector2(-0.431624, 15.54)
+rotation = 0.20944
 texture = ExtResource("2_aqlv0")
 offset = Vector2(0, 3.325)
 
 [node name="Head" type="Sprite2D" parent="Sprite"]
-position = Vector2(0, -6)
-texture = ExtResource("3_l8xsi")
+position = Vector2(0, -28)
+texture = ExtResource("3_pfgi1")
 offset = Vector2(0, -5)
 
 [node name="Torso" type="Sprite2D" parent="Sprite"]
-modulate = Color(0.886275, 1, 1, 1)
+modulate = Color(0.74902, 1, 1, 1)
 texture = ExtResource("4_a7fpg")
 
 [node name="R Arm" type="Sprite2D" parent="Sprite"]
-modulate = Color(1, 1, 0.807843, 1)
-position = Vector2(-3.5, -4.5)
+modulate = Color(0.74902, 1, 1, 1)
+position = Vector2(-13, -9)
 rotation = 0.314159
 texture = ExtResource("2_aqlv0")
 offset = Vector2(0, 3.325)
 
 [node name="R Arm down" type="Sprite2D" parent="Sprite/R Arm"]
-position = Vector2(0, 5.5)
+position = Vector2(5.4438, 11.9002)
 rotation = -1.40324
 texture = ExtResource("2_aqlv0")
 offset = Vector2(0, 3.325)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("CapsuleShape2D_y8u3o")

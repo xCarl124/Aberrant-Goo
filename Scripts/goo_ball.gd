@@ -15,7 +15,7 @@ func _process(_delta):
 	var angle: float = 0
 	if abs(linear_velocity) > Vector2(0.1, 0.1):
 		angle = linear_velocity.angle()
-		face.get_child(0).scale.y = sign(linear_velocity.x)
+		face.get_child(0).scale.y = 0.7 * sign(linear_velocity.x)
 	
 	face.rotation = angle
 
