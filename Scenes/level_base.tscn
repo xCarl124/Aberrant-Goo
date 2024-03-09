@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d4uvtjvhr77c"]
+[gd_scene load_steps=6 format=3 uid="uid://d4uvtjvhr77c"]
 
 [ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_a4ok8"]
 [ext_resource type="Script" path="res://Scripts/input_manager.gd" id="2_7k7gb"]
 [ext_resource type="PackedScene" uid="uid://gehx7ndlhboy" path="res://Prefabs/next_lvl_vent.tscn" id="3_dlcdn"]
 [ext_resource type="PackedScene" uid="uid://iau8h24trsoe" path="res://node_2d.tscn" id="4_kwh6a"]
+[ext_resource type="Texture2D" uid="uid://dvyqu28jvr2ka" path="res://Sprites/Background tile.png" id="5_2wbhx"]
 
 [node name="Level 1" type="Node2D"]
 
@@ -14,6 +15,7 @@ position = Vector2(16, 0)
 polygon = PackedVector2Array(-32, 0, 40, 0, 40, 576, 1024, 576, 1024, 0, 1144, 0, 1144, 704, -32, 704)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+visible = false
 polygon = PackedVector2Array(-32, 0, 40, 0, 40, 576, 1024, 576, 1024, 0, 1144, 0, 1144, 704, -32, 704)
 
 [node name="Player" parent="." instance=ExtResource("1_a4ok8")]
@@ -25,3 +27,11 @@ script = ExtResource("2_7k7gb")
 [node name="Next lvl vent" parent="." instance=ExtResource("3_dlcdn")]
 position = Vector2(1040, 480)
 next_lvl = ExtResource("4_kwh6a")
+
+[node name="BackgroundTile" type="Sprite2D" parent="."]
+z_index = -10
+texture_repeat = 2
+position = Vector2(552, 368)
+texture = ExtResource("5_2wbhx")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 800)

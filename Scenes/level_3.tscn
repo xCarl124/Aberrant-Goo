@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://kco14wsxykqb"]
+[gd_scene load_steps=11 format=3 uid="uid://kco14wsxykqb"]
 
 [ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_w7src"]
 [ext_resource type="Script" path="res://Scripts/input_manager.gd" id="2_ufw7g"]
@@ -16,6 +16,18 @@ width = 48
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b4sk7"]
 size = Vector2(87.5, 16)
+
+[sub_resource type="Curve2D" id="Curve2D_vw6d7"]
+_data = {
+"points": PackedVector2Array(13.6163, 9.20802, -13.6163, -9.20802, -0.5, -11.5, 4.67826, 10.044, -4.67826, -10.044, 17, -43.5, 10.312, -2.49283, -10.312, 2.49283, -11, -51.5, 17.5055, -0.583121, -17.5055, 0.583121, -107, -55.5)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_lwlwq"]
+_data = {
+"points": PackedVector2Array(15.0395, 13.7828, -15.0395, -13.7828, -0.5, -11.5, -10.2173, 0.102828, 10.2173, -0.102828, 17, -45, 6.41496, 3.42834, -6.41496, -3.42834, 113, -49)
+}
+point_count = 3
 
 [node name="Level 3" type="Node2D"]
 
@@ -61,14 +73,20 @@ next_lvl = ExtResource("4_tbwdo")
 [node name="Tree" parent="." instance=ExtResource("5_a8k4c")]
 position = Vector2(830, 511)
 
-[node name="Platform" parent="Tree" index="2"]
-position = Vector2(-114, -87)
+[node name="Platform" parent="Tree" index="3"]
+position = Vector2(-59, -51.5)
+
+[node name="Path" parent="Tree" index="4"]
+curve = SubResource("Curve2D_vw6d7")
 
 [node name="Tree2" parent="." instance=ExtResource("5_a8k4c")]
 position = Vector2(326, 306)
 
-[node name="Platform" parent="Tree2" index="2"]
-position = Vector2(76, -86)
+[node name="Platform" parent="Tree2" index="3"]
+position = Vector2(65, -45)
+
+[node name="Path" parent="Tree2" index="4"]
+curve = SubResource("Curve2D_lwlwq")
 
 [editable path="Tree"]
 [editable path="Tree2"]

@@ -1,28 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://gehx7ndlhboy"]
+[gd_scene load_steps=4 format=3 uid="uid://gehx7ndlhboy"]
 
 [ext_resource type="Script" path="res://Scripts/vent.gd" id="1_3i5e5"]
-
-[sub_resource type="Gradient" id="Gradient_2nc1o"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.807843, 0.835294, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_3b2i4"]
-gradient = SubResource("Gradient_2nc1o")
-width = 50
+[ext_resource type="Texture2D" uid="uid://dqhkm16dp1pwr" path="res://Sprites/vent.png" id="2_e76re"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwd18"]
-size = Vector2(20, 76)
+size = Vector2(20, 26.6667)
 
 [node name="Next lvl vent" type="Area2D"]
+scale = Vector2(3, 3)
 script = ExtResource("1_3i5e5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-4.76837e-07, -0.499999)
-scale = Vector2(0.4, 77)
-texture = SubResource("GradientTexture1D_3b2i4")
+[node name="vent hole" type="Sprite2D" parent="."]
+position = Vector2(-17, 0)
+texture = ExtResource("2_e76re")
+region_enabled = true
+region_rect = Rect2(2, 3, 22, 27)
+
+[node name="vent body" type="Sprite2D" parent="."]
+position = Vector2(-6, 0)
+texture = ExtResource("2_e76re")
+centered = false
+offset = Vector2(0, -13.5)
+region_enabled = true
+region_rect = Rect2(24, 3, 42.755, 27)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_lwd18")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

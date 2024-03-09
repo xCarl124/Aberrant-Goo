@@ -10,6 +10,7 @@ radius = 30.0
 height = 195.0
 
 [node name="Human" type="CharacterBody2D"]
+scale = Vector2(0.8, 0.8)
 script = ExtResource("1_1hok7")
 
 [node name="Sprite" type="Node2D" parent="."]

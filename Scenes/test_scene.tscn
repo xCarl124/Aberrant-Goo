@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://m1wlpx4ysp74"]
+[gd_scene load_steps=13 format=3 uid="uid://m1wlpx4ysp74"]
 
 [ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_q3n65"]
 [ext_resource type="Script" path="res://Scripts/input_manager.gd" id="2_suelq"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b5w8gh1m76o0k" path="res://Prefabs/tree.tscn" id="6_m0lka"]
 [ext_resource type="PackedScene" uid="uid://cbth1jnqci1ki" path="res://Prefabs/door_system.tscn" id="7_8v7jg"]
 [ext_resource type="PackedScene" uid="uid://bxrj072os20g7" path="res://Prefabs/human_filter.tscn" id="8_pmmgm"]
+[ext_resource type="Texture2D" uid="uid://dvyqu28jvr2ka" path="res://Sprites/Background tile.png" id="9_ssrnb"]
 
 [sub_resource type="Gradient" id="Gradient_5jqnj"]
 offsets = PackedFloat32Array(1)
@@ -93,25 +94,36 @@ position = Vector2(116, 568)
 script = ExtResource("2_suelq")
 
 [node name="Human2" parent="." instance=ExtResource("3_oiy5u")]
-position = Vector2(377, 503)
+position = Vector2(710, 526)
 
 [node name="Human3" parent="." instance=ExtResource("3_oiy5u")]
 position = Vector2(791, 241)
 
 [node name="Next lvl vent" parent="." instance=ExtResource("4_nv7ku")]
-position = Vector2(1110, 527)
+position = Vector2(1092, 527)
 next_lvl = ExtResource("5_14iv5")
 
 [node name="Tree" parent="." instance=ExtResource("6_m0lka")]
-position = Vector2(529, 540)
+position = Vector2(563, 526)
 
-[node name="Platform" parent="Tree" index="2"]
-position = Vector2(-83, -79)
+[node name="Platform" parent="Tree" index="3"]
+position = Vector2(-68, -39)
 
 [node name="Door System" parent="." instance=ExtResource("7_8v7jg")]
-position = Vector2(785, 560)
+position = Vector2(824, 515)
 
 [node name="Human Filter" parent="." instance=ExtResource("8_pmmgm")]
 position = Vector2(973, 279)
+
+[node name="Tree2" parent="." instance=ExtResource("6_m0lka")]
+position = Vector2(316, 256)
+
+[node name="BackgroundTile" type="Sprite2D" parent="."]
+z_index = -10
+texture_repeat = 2
+position = Vector2(584, 357)
+texture = ExtResource("9_ssrnb")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 800)
 
 [editable path="Tree"]
