@@ -9,8 +9,10 @@ const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var _direction: int = 0
 var button: DoorButton
+var on_animation := false
 
 @onready var sprite = $Sprite
+@onready var animator = $AnimationPlayer
 
 
 func _physics_process(delta):
@@ -27,14 +29,15 @@ func _physics_process(delta):
 
 
 func set_direction(dir: int):
-	_direction = dir
-	if dir != 0:
-		sprite.scale.x = dir * 2
+	if !on_animation:
+		_direction = dir
+		if dir != 0:
+			sprite.scale.x = dir * 2
 
 
 func aberrate():
 	InputManager.instance().set_creature(self)
-	sprite.modulate = Color.WEB_PURPLE
+	animator.play("aberrate")
 
 
 func destroy():
@@ -48,3 +51,8 @@ func set_door_button(b: DoorButton):
 func interact():
 	if button:
 		button.open_door()
+		animator.play("button_press")
+
+
+func set_on_animation(b: bool):
+	on_animation = b

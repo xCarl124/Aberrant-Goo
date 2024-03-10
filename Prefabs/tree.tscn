@@ -52,12 +52,12 @@ size = Vector2(95.5, 11.5)
 
 [sub_resource type="Curve2D" id="Curve2D_rvvxi"]
 _data = {
-"points": PackedVector2Array(8.84331, 10.6222, -8.84331, -10.6222, -0.5, -11.5, 7.04061, 8.15412, -7.04061, -8.15412, 3.5, -38.5, 10.312, -2.49283, -10.312, 2.49283, -20, -40.5, 17.5055, -0.583121, -17.5055, 0.583121, -115, -43.5)
+"points": PackedVector2Array(13.6163, 9.20802, -13.6163, -9.20802, -0.5, -11.5, 4.67826, 10.044, -4.67826, -10.044, 7.33333, -35.3333, 10.312, -2.49283, -10.312, 2.49283, -20, -40, 17.5055, -0.583121, -17.5055, 0.583121, -115.333, -43.3333)
 }
 point_count = 4
 
 [node name="Tree" type="Node2D"]
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_3xerp")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]

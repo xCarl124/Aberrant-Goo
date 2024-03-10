@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://chcdbjjqyvk5v"]
+[gd_scene load_steps=12 format=3 uid="uid://chcdbjjqyvk5v"]
 
 [ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_mmwxr"]
 [ext_resource type="Script" path="res://Scripts/input_manager.gd" id="2_knstm"]
@@ -19,16 +19,23 @@ width = 48
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5shtr"]
 size = Vector2(87.5, 16)
 
+[sub_resource type="Curve2D" id="Curve2D_0ulmq"]
+_data = {
+"points": PackedVector2Array(-2.41988, 22.1261, 2.41988, -22.1261, -0.5, -11.5, 1.85708, 14.9439, -1.85708, -14.9439, -98, -43.3333, 10.312, -2.49283, -10.312, 2.49283, -80, -67.3333, -10.8373, 7.14673, 10.8373, -7.14673, 16.6667, -72)
+}
+point_count = 4
+
 [node name="Level 4" type="Node2D"]
 
 [node name="Ground" type="StaticBody2D" parent="."]
+z_index = 1
 position = Vector2(16, 0)
 
 [node name="Sprite" type="Polygon2D" parent="Ground"]
-polygon = PackedVector2Array(-32, -24, 648, -24, 648, 24, 40, 24, 40, 384, 480, 384, 480, 256, 528, 256, 528, 440, 40, 440, 40, 576, 624, 576, 624, 416, 800, 416, 800, 232, 648, 112, 648, -24, 1144, -24, 1144, 704, -32, 704)
+polygon = PackedVector2Array(-32, -24, 648, -24, 648, 24, 40, 24, 40, 384, 480, 384, 480, 256, 520, 256, 520, 464, 40, 464, 40, 576, 624, 576, 624, 416, 800, 416, 800, 232, 648, 112, 648, -24, 1144, -24, 1144, 704, -32, 704)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
-polygon = PackedVector2Array(-32, -24, 648, -24, 648, 24, 40, 24, 40, 384, 480, 384, 480, 256, 528, 256, 528, 440, 40, 440, 40, 576, 624, 576, 624, 416, 800, 416, 800, 232, 648, 112, 648, -24, 1144, -24, 1144, 704, -32, 704)
+polygon = PackedVector2Array(-32, -24, 648, -24, 648, 24, 40, 24, 40, 384, 480, 384, 480, 256, 520, 256, 520, 464, 40, 464, 40, 576, 624, 576, 624, 416, 800, 416, 800, 232, 648, 112, 648, -24, 1144, -24, 1144, 704, -32, 704)
 
 [node name="platform" type="Sprite2D" parent="Ground"]
 position = Vector2(464.64, 140.42)
@@ -59,6 +66,7 @@ position = Vector2(-107, 4)
 [node name="Door" parent="Door System" index="1"]
 position = Vector2(-96, -96)
 rotation = 1.5708
+scale = Vector2(1, 2)
 
 [node name="Human" parent="." instance=ExtResource("6_csdkd")]
 position = Vector2(432, 536)
@@ -66,8 +74,11 @@ position = Vector2(432, 536)
 [node name="Tree" parent="." instance=ExtResource("7_nwu7n")]
 position = Vector2(288, 320)
 
-[node name="Platform" parent="Tree" index="2"]
-position = Vector2(-120, -104)
+[node name="Platform" parent="Tree" index="3"]
+position = Vector2(-29.3333, -67.3333)
+
+[node name="Path" parent="Tree" index="4"]
+curve = SubResource("Curve2D_0ulmq")
 
 [editable path="Door System"]
 [editable path="Tree"]

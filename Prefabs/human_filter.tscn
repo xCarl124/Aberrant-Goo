@@ -1,12 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxrj072os20g7"]
+[gd_scene load_steps=8 format=3 uid="uid://bxrj072os20g7"]
 
-[sub_resource type="Gradient" id="Gradient_1ju7g"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 1, 1)
+[ext_resource type="Shader" path="res://Shaders/human_filter.gdshader" id="1_vxq8q"]
+[ext_resource type="Texture2D" uid="uid://c3ox2plkyqwou" path="res://Sprites/Scan Texture.png" id="2_w25tw"]
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_wrplt"]
-gradient = SubResource("Gradient_1ju7g")
-width = 130
+[sub_resource type="Gradient" id="Gradient_nrdwd"]
+colors = PackedColorArray(0.00198097, 0.205357, 0.788387, 1, 0.00784314, 0.498039, 0.65098, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x6jor"]
+gradient = SubResource("Gradient_nrdwd")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lgm6s"]
+shader = ExtResource("1_vxq8q")
+shader_parameter/scale = 0.4
+shader_parameter/scroll = -0.45
+shader_parameter/bars_texture = ExtResource("2_w25tw")
+shader_parameter/gradient = SubResource("GradientTexture1D_x6jor")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sjlv7"]
+size = Vector2(10, 130)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ap33"]
 size = Vector2(10, 128)
@@ -16,9 +27,9 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 1.5708
-scale = Vector2(1, 10)
-texture = SubResource("GradientTexture1D_wrplt")
+material = SubResource("ShaderMaterial_lgm6s")
+texture = SubResource("PlaceholderTexture2D_sjlv7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_0ap33")

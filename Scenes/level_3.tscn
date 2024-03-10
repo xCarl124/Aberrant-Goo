@@ -19,13 +19,13 @@ size = Vector2(87.5, 16)
 
 [sub_resource type="Curve2D" id="Curve2D_vw6d7"]
 _data = {
-"points": PackedVector2Array(13.6163, 9.20802, -13.6163, -9.20802, -0.5, -11.5, 4.67826, 10.044, -4.67826, -10.044, 17, -43.5, 10.312, -2.49283, -10.312, 2.49283, -11, -51.5, 17.5055, -0.583121, -17.5055, 0.583121, -107, -55.5)
+"points": PackedVector2Array(-7.30408, 36.8287, 7.30408, -36.8287, -0.5, -11.5, 27.7537, -2.69103, -27.7537, 2.69103, -38, -70.6667, 17.5055, -0.583121, -10.312, 2.49283, -132.667, -73.3333)
 }
-point_count = 4
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_lwlwq"]
 _data = {
-"points": PackedVector2Array(15.0395, 13.7828, -15.0395, -13.7828, -0.5, -11.5, -10.2173, 0.102828, 10.2173, -0.102828, 17, -45, 6.41496, 3.42834, -6.41496, -3.42834, 113, -49)
+"points": PackedVector2Array(15.0395, 13.7828, -15.0395, -13.7828, -0.5, -11.5, -12.89, -1.382, 12.89, 1.382, 17, -45, -22.0938, 4.17076, 22.0938, -4.17076, 112.667, -49.3333)
 }
 point_count = 3
 
@@ -74,7 +74,7 @@ next_lvl = ExtResource("4_tbwdo")
 position = Vector2(830, 511)
 
 [node name="Platform" parent="Tree" index="3"]
-position = Vector2(-59, -51.5)
+position = Vector2(-86, -69.3333)
 
 [node name="Path" parent="Tree" index="4"]
 curve = SubResource("Curve2D_vw6d7")
