@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbth1jnqci1ki"]
+[gd_scene load_steps=11 format=3 uid="uid://cbth1jnqci1ki"]
 
 [ext_resource type="Script" path="res://Scripts/door_button.gd" id="1_6d7f4"]
 [ext_resource type="Texture2D" uid="uid://6i3g6445qq1s" path="res://Sprites/Button.png" id="1_gm1fc"]
 [ext_resource type="Texture2D" uid="uid://btwlobjwykf4n" path="res://Sprites/Door.png" id="3_ddhvu"]
 [ext_resource type="Texture2D" uid="uid://i1ddov1bg2oy" path="res://Sprites/Interaction sign.png" id="3_xb4f8"]
+[ext_resource type="AudioStream" uid="uid://c4iu3rh0tgoym" path="res://Sounds/button.wav" id="5_d8tbr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kja1"]
 size = Vector2(18, 32)
@@ -85,12 +86,13 @@ _data = {
 
 [node name="Door System" type="Node2D"]
 
-[node name="Button" type="Area2D" parent="." node_paths=PackedStringArray("door_hitbox", "door_sprite", "animator")]
+[node name="Button" type="Area2D" parent="." node_paths=PackedStringArray("door_hitbox", "door_sprite", "animator", "audio_player")]
 position = Vector2(-119, -1)
 script = ExtResource("1_6d7f4")
 door_hitbox = NodePath("../Door/CollisionShape2D")
 door_sprite = NodePath("../Door/Sprite2D")
 animator = NodePath("../Animator")
+audio_player = NodePath("../Audio_Player")
 
 [node name="Btn_sprite" type="Sprite2D" parent="Button"]
 texture = ExtResource("1_gm1fc")
@@ -123,6 +125,9 @@ shape = SubResource("RectangleShape2D_188qx")
 libraries = {
 "": SubResource("AnimationLibrary_mgv6f")
 }
+
+[node name="Audio_Player" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_d8tbr")
 
 [connection signal="body_entered" from="Button" to="Button" method="_on_body_entered"]
 [connection signal="body_exited" from="Button" to="Button" method="_on_body_exited"]

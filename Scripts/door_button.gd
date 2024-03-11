@@ -6,6 +6,7 @@ var _not_opened := true
 @export var door_hitbox: CollisionShape2D
 @export var door_sprite: Sprite2D
 @export var animator: AnimationPlayer
+@export var audio_player: AudioStreamPlayer2D
 @onready var interaction_sprite = $Interaction_sprite
 
 func _on_body_entered(body):
@@ -24,3 +25,4 @@ func open_door():
 	if _not_opened:
 		interaction_sprite.visible = false
 		animator.play("close_door")
+		audio_player.play()

@@ -3,13 +3,14 @@ extends Node2D
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var path: Curve2D = $Path.curve
 @onready var tentacle: Line2D = $Tentacle
+@onready var audio_player = $"Audio Player"
 var _normal := true
 
 func _on_trigger_entered(body):
 	if _normal and body.name == "Player":
 		_normal = false
+		audio_player.play()
 		sprite.play("aberrate")
-		#await sprite.animation_finished
 		await draw_tentacle()
 		$Platform.process_mode = Node.PROCESS_MODE_INHERIT
 		$Platform/Sprite2D.visible = true

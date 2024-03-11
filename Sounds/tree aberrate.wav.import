@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bwikgqy32u5vh"
+path="res://.godot/imported/tree aberrate.wav-0e0b0cbaccd450e93510052a38a139e5.sample"
+
+[deps]
+
+source_file="res://Sounds/tree aberrate.wav"
+dest_files=["res://.godot/imported/tree aberrate.wav-0e0b0cbaccd450e93510052a38a139e5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

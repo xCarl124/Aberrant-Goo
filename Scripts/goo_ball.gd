@@ -7,6 +7,7 @@ extends RigidBody2D
 @onready var hitbox: CollisionShape2D = $Hitbox
 @onready var ball_sprite = $"Ball Sprite"
 @onready var face = $Face
+@onready var audio_player = $"Audio Player"
 
 
 func _process(_delta):
@@ -37,6 +38,8 @@ func _on_body_entered(body):
 		get_parent().call_deferred("remove_child", self)
 		body.call_deferred("add_child", self)
 		control_creature()
+	else:
+		audio_player.play()
 
 
 func control_creature():

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ga2ic6pxpog3"
+path="res://.godot/imported/goo hit.wav-0df1bf1e88bd4a82d6130cb8b0c33609.sample"
+
+[deps]
+
+source_file="res://Sounds/goo hit.wav"
+dest_files=["res://.godot/imported/goo hit.wav-0df1bf1e88bd4a82d6130cb8b0c33609.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

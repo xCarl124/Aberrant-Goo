@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bji3tgkrsfd0w"]
+[gd_scene load_steps=9 format=3 uid="uid://bji3tgkrsfd0w"]
 
 [ext_resource type="Script" path="res://Scripts/goo_ball.gd" id="1_trfh2"]
 [ext_resource type="Texture2D" uid="uid://dakuw86b0l51w" path="res://Sprites/Goo Face.png" id="3_2ix6p"]
+[ext_resource type="AudioStream" uid="uid://ga2ic6pxpog3" path="res://Sounds/goo hit.wav" id="3_6skqk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gd236"]
 bounce = 0.1
@@ -56,5 +57,8 @@ z_index = 1
 position = Vector2(13, -2)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_2ix6p")
+
+[node name="Audio Player" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6skqk")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
