@@ -1,6 +1,7 @@
 class_name GooBall
 extends RigidBody2D
 
+var _prev_vel_sign: int = 0
 @export var impulse_force: int = 400
 
 @onready var aim_line: Line2D = $"Aim Line"
@@ -12,9 +13,13 @@ extends RigidBody2D
 
 func _process(_delta):
 	var angle: float = 0
-	if abs(linear_velocity) > Vector2(0.1, 0.1):
+	if abs(linear_velocity) > Vector2(0.2, 0.2):
 		angle = linear_velocity.angle()
 		face.get_child(0).flip_v = sign(linear_velocity.x) < 0
+		_prev_vel_sign = sign(linear_velocity.x)
+	else:
+		if _prev_vel_sign < 0:
+			angle = deg_to_rad(180)
 	
 	face.rotation = angle
 
