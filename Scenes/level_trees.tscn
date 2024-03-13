@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_ql5bw"]
 [ext_resource type="PackedScene" uid="uid://gehx7ndlhboy" path="res://Prefabs/next_lvl_vent.tscn" id="2_mkk1p"]
-[ext_resource type="PackedScene" uid="uid://chcdbjjqyvk5v" path="res://Scenes/level_door.tscn" id="3_5u1x6"]
+[ext_resource type="PackedScene" uid="uid://bwb405mb3n7ue" path="res://Scenes/level_electric.tscn" id="3_nvcy5"]
 [ext_resource type="PackedScene" uid="uid://b5w8gh1m76o0k" path="res://Prefabs/tree.tscn" id="4_as3om"]
 [ext_resource type="PackedScene" uid="uid://c1i80pt5vh0db" path="res://Prefabs/input_manager.tscn" id="5_las80"]
 [ext_resource type="Texture2D" uid="uid://dvyqu28jvr2ka" path="res://Sprites/Background tile.png" id="6_n1dqg"]
@@ -56,7 +56,7 @@ position = Vector2(494, 535)
 
 [node name="Next lvl vent" parent="." instance=ExtResource("2_mkk1p")]
 position = Vector2(1037, 105)
-next_lvl = ExtResource("3_5u1x6")
+next_lvl = ExtResource("3_nvcy5")
 
 [node name="Tree" parent="." instance=ExtResource("4_as3om")]
 position = Vector2(728, 545)

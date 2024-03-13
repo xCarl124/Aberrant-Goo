@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://ga2ic6pxpog3" path="res://Sounds/goo hit.wav" id="3_6skqk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gd236"]
-bounce = 0.1
+bounce = 0.15
 
 [sub_resource type="Gradient" id="Gradient_c5lbe"]
 offsets = PackedFloat32Array(0.68, 0.73)

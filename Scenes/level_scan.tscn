@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_qryeq"]
 [ext_resource type="PackedScene" uid="uid://gehx7ndlhboy" path="res://Prefabs/next_lvl_vent.tscn" id="2_udy01"]
-[ext_resource type="PackedScene" uid="uid://d4uvtjvhr77c" path="res://Scenes/level_base.tscn" id="3_yli3x"]
+[ext_resource type="PackedScene" uid="uid://dknegyus4ejf2" path="res://Scenes/level_final.tscn" id="3_nojyf"]
 [ext_resource type="PackedScene" uid="uid://cbth1jnqci1ki" path="res://Prefabs/door_system.tscn" id="4_3vlfg"]
 [ext_resource type="PackedScene" uid="uid://bxrj072os20g7" path="res://Prefabs/human_filter.tscn" id="5_uxafp"]
 [ext_resource type="PackedScene" uid="uid://darbvxvl6l23i" path="res://Prefabs/human.tscn" id="6_4fxf1"]
@@ -23,7 +23,7 @@ size = Vector2(350.5, 16)
 [node name="Level Scan" type="Node2D"]
 
 [node name="Ground" type="StaticBody2D" parent="."]
-z_index = 1
+z_index = 5
 position = Vector2(16, 0)
 
 [node name="Sprite" type="Polygon2D" parent="Ground"]
@@ -47,7 +47,7 @@ position = Vector2(312, 528)
 
 [node name="Next lvl vent" parent="." instance=ExtResource("2_udy01")]
 position = Vector2(1048, 528)
-next_lvl = ExtResource("3_yli3x")
+next_lvl = ExtResource("3_nojyf")
 
 [node name="Door System" parent="." instance=ExtResource("4_3vlfg")]
 position = Vector2(864, 528)

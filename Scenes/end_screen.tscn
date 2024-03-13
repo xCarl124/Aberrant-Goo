@@ -1,0 +1,108 @@
+[gd_scene load_steps=7 format=3 uid="uid://dn0hjnmi0dq2q"]
+
+[ext_resource type="Script" path="res://Scripts/menu_manager.gd" id="2_kfecd"]
+[ext_resource type="Texture2D" uid="uid://dvyqu28jvr2ka" path="res://Sprites/Background tile.png" id="5_yokd0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xft40"]
+font_size = 40
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pct4"]
+bg_color = Color(0.917647, 0.831373, 0.666667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.14902, 0.168627, 0.266667, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jyc0"]
+bg_color = Color(0.839216, 0.721569, 0.490196, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.14902, 0.168627, 0.266667, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyjop"]
+bg_color = Color(0.933333, 0.8, 0.321569, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.14902, 0.168627, 0.266667, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Level 1" type="Node2D"]
+
+[node name="Sprite" type="Polygon2D" parent="."]
+position = Vector2(16, 0)
+polygon = PackedVector2Array(-32, 0, 40, 0, 1072, 0, 1072, 32, 40, 32, 40, 608, 1064, 608, 1064, 0, 1144, 0, 1144, 704, -32, 704)
+
+[node name="BackgroundTile" type="Sprite2D" parent="."]
+z_index = -10
+texture_repeat = 2
+position = Vector2(552, 368)
+texture = ExtResource("5_yokd0")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 800)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("2_kfecd")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -377.0
+offset_top = -124.0
+offset_right = 377.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Congratulations! You finished the game
+Thanks for playing!"
+label_settings = SubResource("LabelSettings_xft40")
+horizontal_alignment = 1
+
+[node name="Reset btn" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = 27.0
+offset_right = 78.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.14902, 0.168627, 0.266667, 1)
+theme_override_colors/font_hover_color = Color(0.14902, 0.168627, 0.266667, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_3pct4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3jyc0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fyjop")
+text = "Play again"
+
+[connection signal="pressed" from="Control/Reset btn" to="Control" method="_on_reset_btn_pressed"]

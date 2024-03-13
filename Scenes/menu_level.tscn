@@ -1,10 +1,151 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvfeufshvq3bl"]
+[gd_scene load_steps=17 format=3 uid="uid://dvfeufshvq3bl"]
 
 [ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_kdj4x"]
 [ext_resource type="PackedScene" uid="uid://c1i80pt5vh0db" path="res://Prefabs/input_manager.tscn" id="2_t2v7a"]
 [ext_resource type="PackedScene" uid="uid://gehx7ndlhboy" path="res://Prefabs/next_lvl_vent.tscn" id="3_ahgau"]
 [ext_resource type="PackedScene" uid="uid://d28lv2tkf6v2q" path="res://Scenes/level_movement.tscn" id="4_yisl6"]
 [ext_resource type="Texture2D" uid="uid://dvyqu28jvr2ka" path="res://Sprites/Background tile.png" id="5_eja67"]
+[ext_resource type="Texture2D" uid="uid://bmfndl1a22uup" path="res://Sprites/Title.png" id="6_i4icw"]
+[ext_resource type="Script" path="res://Scripts/menu_manager.gd" id="6_p8khu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_idtn1"]
+bg_color = Color(0.917647, 0.831373, 0.666667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.14902, 0.168627, 0.266667, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpf4g"]
+bg_color = Color(0.839216, 0.721569, 0.490196, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.14902, 0.168627, 0.266667, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_syuga"]
+bg_color = Color(0.933333, 0.8, 0.321569, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.14902, 0.168627, 0.266667, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mnlvd"]
+bg_color = Color(0.917647, 0.831373, 0.666667, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.14902, 0.168627, 0.266667, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Animation" id="Animation_8sdk7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3e3fi"]
+resource_name = "hide_howto"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Panel how to play:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(226, 0, 0.45, 0, 0, 1200, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Control/Panel how to play:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+
+[sub_resource type="Animation" id="Animation_jtlkx"]
+resource_name = "hide_menu"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -650)]
+}
+
+[sub_resource type="Animation" id="Animation_4g3y7"]
+resource_name = "show_howto"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Panel how to play:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1200, -0.25, 0, 0.25, 0, 226, -0.215, 0, 1.5, 1),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Control/Panel how to play:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8w5wr"]
+_data = {
+"RESET": SubResource("Animation_8sdk7"),
+"hide_howto": SubResource("Animation_3e3fi"),
+"hide_menu": SubResource("Animation_jtlkx"),
+"show_howto": SubResource("Animation_4g3y7")
+}
 
 [node name="Menu Level" type="Node2D"]
 
@@ -26,6 +167,9 @@ position = Vector2(162, 550)
 position = Vector2(1040, 480)
 next_lvl = ExtResource("4_yisl6")
 
+[node name="vent body" parent="Next lvl vent" index="1"]
+region_rect = Rect2(24, 3, 52.095, 27)
+
 [node name="BackgroundTile" type="Sprite2D" parent="."]
 z_index = -10
 texture_repeat = 2
@@ -33,3 +177,181 @@ position = Vector2(552, 368)
 texture = ExtResource("5_eja67")
 region_enabled = true
 region_rect = Rect2(0, 0, 2000, 800)
+
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("animator")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("6_p8khu")
+animator = NodePath("../AnimationPlayer")
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.0
+offset_top = -254.0
+offset_right = 158.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_i4icw")
+
+[node name="Start btn" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = 27.0
+offset_right = 78.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.14902, 0.168627, 0.266667, 1)
+theme_override_colors/font_hover_color = Color(0.14902, 0.168627, 0.266667, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_idtn1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hpf4g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_syuga")
+text = "Start"
+
+[node name="How to play btn" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = 108.0
+offset_right = 78.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.14902, 0.168627, 0.266667, 1)
+theme_override_colors/font_hover_color = Color(0.14902, 0.168627, 0.266667, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_idtn1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hpf4g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_syuga")
+text = "How to Play"
+
+[node name="Panel how to play" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1776.0
+offset_top = 448.0
+offset_right = 2476.0
+offset_bottom = 848.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mnlvd")
+
+[node name="Back btn" type="Button" parent="Control/Panel how to play"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -84.0
+offset_top = -49.0
+offset_right = -13.0
+offset_bottom = -13.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+theme_override_colors/font_color = Color(0.14902, 0.168627, 0.266667, 1)
+theme_override_colors/font_hover_color = Color(0.14902, 0.168627, 0.266667, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_idtn1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hpf4g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_syuga")
+text = "Back"
+
+[node name="Title" type="Label" parent="Control/Panel how to play"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 123.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "HOW TO PLAY:"
+
+[node name="Title Goo" type="Label" parent="Control/Panel how to play"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 51.0
+offset_right = 123.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Goo Ball:"
+
+[node name="Goo ball" type="Label" parent="Control/Panel how to play"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 78.0
+offset_right = 689.0
+offset_bottom = 179.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Left click anywhere and drag to make the goo ball jump.
+Right click to cancel the throw.
+When you hit a human you start to controll them. You can jump out of them, but you destroy them when you jump"
+autowrap_mode = 2
+
+[node name="Title Human" type="Label" parent="Control/Panel how to play"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 186.0
+offset_right = 123.0
+offset_bottom = 221.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Human:"
+
+[node name="Human" type="Label" parent="Control/Panel how to play"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 216.0
+offset_right = 687.0
+offset_bottom = 291.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "A / ← to move left.
+D / → to move right.
+E to interact with buttons.
+"
+
+[node name="Restart" type="Label" parent="Control/Panel how to play"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 313.0
+offset_right = 687.0
+offset_bottom = 388.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Press R to restart a level if you get stucked or destroyed"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8w5wr")
+}
+
+[connection signal="pressed" from="Control/Start btn" to="Control" method="_on_start_btn_pressed"]
+[connection signal="pressed" from="Control/How to play btn" to="Control" method="_on_how_to_play_btn_pressed"]
+[connection signal="pressed" from="Control/Panel how to play/Back btn" to="Control" method="_on_back_btn_pressed"]
+
+[editable path="Next lvl vent"]

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/input_manager.gd" id="2_suelq"]
 [ext_resource type="PackedScene" uid="uid://darbvxvl6l23i" path="res://Prefabs/human.tscn" id="3_oiy5u"]
 [ext_resource type="PackedScene" uid="uid://gehx7ndlhboy" path="res://Prefabs/next_lvl_vent.tscn" id="4_nv7ku"]
-[ext_resource type="PackedScene" uid="uid://iau8h24trsoe" path="res://node_2d.tscn" id="5_14iv5"]
+[ext_resource type="PackedScene" uid="uid://iau8h24trsoe" path="res://Scenes/empty_level.tscn" id="5_14iv5"]
 [ext_resource type="PackedScene" uid="uid://b5w8gh1m76o0k" path="res://Prefabs/tree.tscn" id="6_m0lka"]
 [ext_resource type="PackedScene" uid="uid://cbth1jnqci1ki" path="res://Prefabs/door_system.tscn" id="7_8v7jg"]
 [ext_resource type="PackedScene" uid="uid://bxrj072os20g7" path="res://Prefabs/human_filter.tscn" id="8_pmmgm"]

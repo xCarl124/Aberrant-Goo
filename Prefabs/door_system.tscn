@@ -85,6 +85,7 @@ _data = {
 }
 
 [node name="Door System" type="Node2D"]
+z_index = -1
 
 [node name="Button" type="Area2D" parent="." node_paths=PackedStringArray("door_hitbox", "door_sprite", "animator", "audio_player")]
 position = Vector2(-119, -1)

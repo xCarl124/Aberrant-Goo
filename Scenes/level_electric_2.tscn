@@ -1,0 +1,113 @@
+[gd_scene load_steps=11 format=3 uid="uid://c3mtdqtq86ixx"]
+
+[ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_ct54x"]
+[ext_resource type="PackedScene" uid="uid://c1i80pt5vh0db" path="res://Prefabs/input_manager.tscn" id="2_tnpkt"]
+[ext_resource type="PackedScene" uid="uid://gehx7ndlhboy" path="res://Prefabs/next_lvl_vent.tscn" id="3_fs3ap"]
+[ext_resource type="PackedScene" uid="uid://bo7jqxg8aoa0v" path="res://Scenes/level_scan.tscn" id="4_li36j"]
+[ext_resource type="Texture2D" uid="uid://dvyqu28jvr2ka" path="res://Sprites/Background tile.png" id="5_w2xib"]
+[ext_resource type="PackedScene" uid="uid://dibflusgjx1nb" path="res://Prefabs/electric_wall.tscn" id="6_xu431"]
+[ext_resource type="PackedScene" uid="uid://b5w8gh1m76o0k" path="res://Prefabs/tree.tscn" id="7_wup26"]
+[ext_resource type="PackedScene" uid="uid://darbvxvl6l23i" path="res://Prefabs/human.tscn" id="8_haiq6"]
+[ext_resource type="PackedScene" uid="uid://cbth1jnqci1ki" path="res://Prefabs/door_system.tscn" id="9_m7ysp"]
+
+[sub_resource type="Curve2D" id="Curve2D_e3v86"]
+_data = {
+"points": PackedVector2Array(40.674, 33.4341, -40.674, -33.4341, -0.5, -11.5, 0.34862, 14.4727, -0.34862, -14.4727, 31.3333, -67.3333, 8.13913, 17.9096, -8.13913, -17.9096, -19.3333, -95.3333, 10.312, -2.49283, -10.312, 2.49283, 18, -120.667, -13.3278, 3.75021, 13.3278, -3.75021, 111.333, -124)
+}
+point_count = 5
+
+[node name="Level 1" type="Node2D"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(16, 0)
+
+[node name="Sprite" type="Polygon2D" parent="Ground"]
+polygon = PackedVector2Array(-32, 0, 1024, 0, 1024, 56, 40, 56, 40, 272, 96, 272, 96, 304, 40, 304, 40, 448, 208, 448, 208, 576, 520, 576, 520, 368, 536, 368, 536, 576, 944, 576, 944, 512, 1024, 512, 1024, 312, 1008, 272, 976, 240, 936, 216, 888, 200, 840, 192, 688, 192, 688, 176, 1024, 176, 1024, 0, 1144, 0, 1144, 704, -32, 704)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2" type="Polygon2D" parent="Ground"]
+polygon = PackedVector2Array(864, 368, 720, 368, 720, 464, 816, 464, 864, 416)
+metadata/_edit_lock_ = true
+
+[node name="Sprite3" type="Polygon2D" parent="Ground"]
+polygon = PackedVector2Array(352, 192, 352, 176, 176, 176, 176, 224, 320, 224, 320, 192)
+metadata/_edit_lock_ = true
+
+[node name="Sprite4" type="Polygon2D" parent="Ground"]
+polygon = PackedVector2Array(288, 368, 344, 368, 344, 400)
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+polygon = PackedVector2Array(-32, 0, 1024, 0, 1024, 56, 40, 56, 40, 272, 96, 272, 96, 304, 40, 304, 40, 448, 208, 448, 208, 576, 520, 576, 520, 368, 536, 368, 536, 576, 944, 576, 944, 512, 1024, 512, 1024, 312, 1008, 272, 976, 240, 936, 216, 888, 200, 840, 192, 688, 192, 688, 176, 1024, 176, 1024, 0, 1144, 0, 1144, 704, -32, 704)
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ground"]
+polygon = PackedVector2Array(720, 368, 720, 464, 816, 464, 864, 416, 864, 368)
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Ground"]
+polygon = PackedVector2Array(352, 192, 352, 176, 176, 176, 176, 224, 320, 224, 320, 192)
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Ground"]
+polygon = PackedVector2Array(288, 368, 344, 368, 344, 400)
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("1_ct54x")]
+position = Vector2(104, 408)
+
+[node name="InputManager" parent="." instance=ExtResource("2_tnpkt")]
+
+[node name="Next lvl vent" parent="." instance=ExtResource("3_fs3ap")]
+position = Vector2(1040, 112)
+next_lvl = ExtResource("4_li36j")
+
+[node name="BackgroundTile" type="Sprite2D" parent="."]
+z_index = -10
+texture_repeat = 2
+position = Vector2(552, 368)
+texture = ExtResource("5_w2xib")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 800)
+metadata/_edit_lock_ = true
+
+[node name="Electric wall" parent="." instance=ExtResource("6_xu431")]
+position = Vector2(344, 360)
+
+[node name="Electric wall2" parent="." instance=ExtResource("6_xu431")]
+position = Vector2(544, 360)
+
+[node name="Electric wall3" parent="." instance=ExtResource("6_xu431")]
+position = Vector2(344, 200)
+scale = Vector2(1, -1)
+
+[node name="Electric wall4" parent="." instance=ExtResource("6_xu431")]
+position = Vector2(544, 200)
+scale = Vector2(1, -1)
+
+[node name="Tree" parent="." instance=ExtResource("7_wup26")]
+position = Vector2(448, 512)
+
+[node name="Platform" parent="Tree" index="3"]
+position = Vector2(65.3333, -119.333)
+
+[node name="Sprite2D" parent="Tree/Platform" index="0"]
+flip_h = true
+
+[node name="Path" parent="Tree" index="4"]
+curve = SubResource("Curve2D_e3v86")
+
+[node name="Human" parent="." instance=ExtResource("8_haiq6")]
+position = Vector2(1000, 456)
+
+[node name="Door System" parent="." instance=ExtResource("9_m7ysp")]
+position = Vector2(760, 504)
+
+[node name="Button" parent="Door System" index="0"]
+position = Vector2(-128, -8)
+
+[node name="Door" parent="Door System" index="1"]
+position = Vector2(-536, -388)
+
+[editable path="Tree"]
+[editable path="Door System"]

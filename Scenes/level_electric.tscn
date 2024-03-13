@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://bwb405mb3n7ue"]
+
+[ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_extk4"]
+[ext_resource type="PackedScene" uid="uid://c1i80pt5vh0db" path="res://Prefabs/input_manager.tscn" id="2_n17ii"]
+[ext_resource type="PackedScene" uid="uid://gehx7ndlhboy" path="res://Prefabs/next_lvl_vent.tscn" id="3_4qj47"]
+[ext_resource type="PackedScene" uid="uid://chcdbjjqyvk5v" path="res://Scenes/level_door.tscn" id="4_jxd0a"]
+[ext_resource type="Texture2D" uid="uid://dvyqu28jvr2ka" path="res://Sprites/Background tile.png" id="5_hqke0"]
+[ext_resource type="PackedScene" uid="uid://dibflusgjx1nb" path="res://Prefabs/electric_wall.tscn" id="6_75f0j"]
+[ext_resource type="PackedScene" uid="uid://b5w8gh1m76o0k" path="res://Prefabs/tree.tscn" id="7_s0crk"]
+
+[sub_resource type="Curve2D" id="Curve2D_utdwf"]
+_data = {
+"points": PackedVector2Array(7.6163, 8.04135, -7.6163, -8.04135, -2, -10.6667, -11.1551, 3.87733, 11.1551, -3.87733, 7.33333, -35.3333, 8.14533, 1.50717, -8.14533, -1.50717, 60, -31.3333, -13.3278, 3.75021, 13.3278, -3.75021, 152.667, -35.3333)
+}
+point_count = 4
+
+[node name="Level electric" type="Node2D"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(16, 0)
+
+[node name="Sprite" type="Polygon2D" parent="Ground"]
+polygon = PackedVector2Array(-32, 0, 1032, 0, 1032, 80, 640, 80, 576, 32, 240, 32, 40, 176, 40, 360, 288, 360, 288, 384, 40, 384, 40, 576, 448, 576, 448, 496, 560, 496, 560, 208, 768, 208, 768, 224, 576, 224, 576, 576, 1024, 576, 1024, 400, 880, 400, 880, 384, 1024, 384, 1024, 0, 1144, 0, 1144, 704, -32, 704)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+polygon = PackedVector2Array(-32, 0, 1024, 0, 1024, 80, 640, 80, 576, 32, 240, 32, 40, 176, 40, 360, 288, 360, 288, 384, 40, 384, 40, 576, 448, 576, 448, 496, 560, 496, 560, 208, 768, 208, 768, 224, 576, 224, 576, 576, 1024, 576, 1024, 400, 880, 400, 880, 384, 1024, 384, 1024, 0, 1144, 0, 1144, 704, -32, 704)
+
+[node name="Player" parent="." instance=ExtResource("1_extk4")]
+position = Vector2(136, 552)
+
+[node name="InputManager" parent="." instance=ExtResource("2_n17ii")]
+
+[node name="Next lvl vent" parent="." instance=ExtResource("3_4qj47")]
+position = Vector2(1040, 528)
+next_lvl = ExtResource("4_jxd0a")
+
+[node name="BackgroundTile" type="Sprite2D" parent="."]
+z_index = -10
+texture_repeat = 2
+position = Vector2(552, 368)
+texture = ExtResource("5_hqke0")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 800)
+metadata/_edit_lock_ = true
+
+[node name="Electric wall" parent="." instance=ExtResource("6_75f0j")]
+position = Vector2(216, 568)
+
+[node name="Electric wall2" parent="." instance=ExtResource("6_75f0j")]
+position = Vector2(568, 416)
+rotation = -1.5708
+
+[node name="Electric wall3" parent="." instance=ExtResource("6_75f0j")]
+position = Vector2(688, 392)
+
+[node name="Sprite2D" parent="Electric wall3" index="1"]
+rotation = 1.5708
+
+[node name="Sprite2D2" parent="Electric wall3" index="2"]
+rotation = -1.5708
+
+[node name="Electric wall4" parent="." instance=ExtResource("6_75f0j")]
+position = Vector2(888, 88)
+rotation = 0.785398
+
+[node name="Sprite2D" parent="Electric wall4" index="1"]
+rotation = 2.35619
+
+[node name="Sprite2D2" parent="Electric wall4" index="2"]
+rotation = -2.35619
+
+[node name="Tree" parent="." instance=ExtResource("7_s0crk")]
+position = Vector2(180, 297)
+
+[node name="Platform" parent="Tree" index="3"]
+position = Vector2(106.667, -32)
+
+[node name="Sprite2D" parent="Tree/Platform" index="0"]
+flip_h = true
+
+[node name="Path" parent="Tree" index="4"]
+curve = SubResource("Curve2D_utdwf")
+
+[editable path="Electric wall3"]
+[editable path="Electric wall4"]
+[editable path="Tree"]

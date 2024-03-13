@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c3ox2plkyqwou" path="res://Sprites/Scan Texture.png" id="2_w25tw"]
 
 [sub_resource type="Gradient" id="Gradient_nrdwd"]
-colors = PackedColorArray(0.00198097, 0.205357, 0.788387, 1, 0.00784314, 0.498039, 0.65098, 1)
+colors = PackedColorArray(0.00392157, 0.203922, 0.788235, 0.588235, 0.00784314, 0.498039, 0.65098, 0.588235)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_x6jor"]
 gradient = SubResource("Gradient_nrdwd")
@@ -24,6 +24,7 @@ size = Vector2(10, 128)
 
 [node name="Human Filter" type="StaticBody2D"]
 modulate = Color(1, 1, 1, 0.313726)
+z_index = 1
 collision_layer = 2
 collision_mask = 2
 

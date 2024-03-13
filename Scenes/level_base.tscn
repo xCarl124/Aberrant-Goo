@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_a4ok8"]
 [ext_resource type="PackedScene" uid="uid://c1i80pt5vh0db" path="res://Prefabs/input_manager.tscn" id="2_6lqib"]
 [ext_resource type="PackedScene" uid="uid://gehx7ndlhboy" path="res://Prefabs/next_lvl_vent.tscn" id="3_dlcdn"]
-[ext_resource type="PackedScene" uid="uid://iau8h24trsoe" path="res://node_2d.tscn" id="4_kwh6a"]
+[ext_resource type="PackedScene" uid="uid://iau8h24trsoe" path="res://Scenes/empty_level.tscn" id="4_kwh6a"]
 [ext_resource type="Texture2D" uid="uid://dvyqu28jvr2ka" path="res://Sprites/Background tile.png" id="5_2wbhx"]
 
 [node name="Level 1" type="Node2D"]
