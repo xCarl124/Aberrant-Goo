@@ -33,7 +33,7 @@ func update_aim(dir: Vector2 = Vector2.ZERO, distance: float = 0):
 
 
 func _on_body_entered(body):
-	if body is CharacterBody2D:
+	if body is Human:
 		body.aberrate()
 		get_parent().call_deferred("remove_child", self)
 		body.call_deferred("add_child", self)
@@ -66,3 +66,7 @@ func check_in_creature():
 		InputManager.instance().remove_creature()
 		parent.destroy()
 		#await get_tree().create_timer(0.01).timeout
+
+
+func destroy():
+	queue_free()

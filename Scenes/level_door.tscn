@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://chcdbjjqyvk5v"]
+
+[ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_g0ib1"]
+[ext_resource type="PackedScene" uid="uid://gehx7ndlhboy" path="res://Prefabs/next_lvl_vent.tscn" id="2_21ymf"]
+[ext_resource type="PackedScene" uid="uid://bo7jqxg8aoa0v" path="res://Scenes/level_scan.tscn" id="3_mt4ca"]
+[ext_resource type="PackedScene" uid="uid://cbth1jnqci1ki" path="res://Prefabs/door_system.tscn" id="4_hed47"]
+[ext_resource type="PackedScene" uid="uid://darbvxvl6l23i" path="res://Prefabs/human.tscn" id="5_56y27"]
+[ext_resource type="PackedScene" uid="uid://b5w8gh1m76o0k" path="res://Prefabs/tree.tscn" id="6_m3bil"]
+[ext_resource type="PackedScene" uid="uid://c1i80pt5vh0db" path="res://Prefabs/input_manager.tscn" id="7_5m287"]
+[ext_resource type="Texture2D" uid="uid://dvyqu28jvr2ka" path="res://Sprites/Background tile.png" id="8_xgatk"]
+
+[sub_resource type="Curve2D" id="Curve2D_0ulmq"]
+_data = {
+"points": PackedVector2Array(0.663407, 23.8079, -0.663407, -23.8079, 0, -10.6667, 1.85708, 19.4287, -1.85708, -19.4287, -97.3333, -50.6667, 8.06961, 0.590457, -8.06961, -0.590457, -62, -72, -10.8373, 7.14673, 10.8373, -7.14673, 30.6667, -75.3333)
+}
+point_count = 4
+
+[node name="Level Door" type="Node2D"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+z_index = 1
+position = Vector2(16, 0)
+
+[node name="Sprite" type="Polygon2D" parent="Ground"]
+polygon = PackedVector2Array(-32, -24, 648, -24, 648, 24, 40, 24, 40, 384, 480, 384, 480, 256, 520, 256, 520, 464, 40, 464, 40, 576, 640, 576, 640, 400, 800, 400, 800, 232, 648, 120, 456, 120, 456, 104, 648, 104, 648, -24, 1144, -24, 1144, 704, -32, 704)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+polygon = PackedVector2Array(-32, -24, 648, -24, 648, 24, 40, 24, 40, 384, 480, 384, 480, 256, 520, 256, 520, 464, 40, 464, 40, 576, 640, 576, 640, 400, 800, 400, 800, 232, 648, 120, 456, 120, 456, 104, 648, 104, 648, -24, 1144, -24, 1144, 704, -32, 704)
+
+[node name="Player" parent="." instance=ExtResource("1_g0ib1")]
+position = Vector2(104, 504)
+
+[node name="Next lvl vent" parent="." instance=ExtResource("2_21ymf")]
+position = Vector2(656, 64)
+next_lvl = ExtResource("3_mt4ca")
+
+[node name="Door System" parent="." instance=ExtResource("4_hed47")]
+position = Vector2(688, 528)
+
+[node name="Button" parent="Door System" index="0"]
+position = Vector2(-88, 0)
+
+[node name="Door" parent="Door System" index="1"]
+position = Vector2(-92, -96)
+rotation = 1.5708
+
+[node name="Human" parent="." instance=ExtResource("5_56y27")]
+position = Vector2(432, 536)
+
+[node name="Tree" parent="." instance=ExtResource("6_m3bil")]
+position = Vector2(288, 320)
+
+[node name="Platform" parent="Tree" index="3"]
+position = Vector2(-15.3333, -71.3334)
+
+[node name="Sprite2D" parent="Tree/Platform" index="0"]
+flip_h = true
+
+[node name="Path" parent="Tree" index="4"]
+curve = SubResource("Curve2D_0ulmq")
+
+[node name="InputManager" parent="." instance=ExtResource("7_5m287")]
+
+[node name="BackgroundTile" type="Sprite2D" parent="."]
+z_index = -10
+texture_repeat = 2
+position = Vector2(548, 365)
+texture = ExtResource("8_xgatk")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 800)
+
+[editable path="Door System"]
+[editable path="Tree"]

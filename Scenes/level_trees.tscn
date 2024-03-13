@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=3 uid="uid://kco14wsxykqb"]
+
+[ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_ql5bw"]
+[ext_resource type="PackedScene" uid="uid://gehx7ndlhboy" path="res://Prefabs/next_lvl_vent.tscn" id="2_mkk1p"]
+[ext_resource type="PackedScene" uid="uid://chcdbjjqyvk5v" path="res://Scenes/level_door.tscn" id="3_5u1x6"]
+[ext_resource type="PackedScene" uid="uid://b5w8gh1m76o0k" path="res://Prefabs/tree.tscn" id="4_as3om"]
+[ext_resource type="PackedScene" uid="uid://c1i80pt5vh0db" path="res://Prefabs/input_manager.tscn" id="5_las80"]
+[ext_resource type="Texture2D" uid="uid://dvyqu28jvr2ka" path="res://Sprites/Background tile.png" id="6_n1dqg"]
+
+[sub_resource type="Gradient" id="Gradient_pnvbf"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ccg0j"]
+gradient = SubResource("Gradient_pnvbf")
+width = 48
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4sk7"]
+size = Vector2(87.5, 16)
+
+[sub_resource type="Curve2D" id="Curve2D_vw6d7"]
+_data = {
+"points": PackedVector2Array(18.8294, 22.3493, -18.8294, -22.3493, 0, -10, 44.7051, 20.7937, -25.2816, 0.395527, 7.99994, -60, 17.5055, -0.583121, -10.312, 2.49283, -86.0001, -64.6667)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_lwlwq"]
+_data = {
+"points": PackedVector2Array(33.4411, 29.8375, -33.4411, -29.8375, -0.5, -11.5, -5.8725, 6.66111, 5.8725, -6.66111, 32.6667, -62.6667, -22.0938, 4.17076, 22.0938, -4.17076, 127.333, -66)
+}
+point_count = 3
+
+[node name="Level Trees" type="Node2D"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(8, 32)
+
+[node name="Sprite" type="Polygon2D" parent="Ground"]
+polygon = PackedVector2Array(-32, -104, 1024, -104, 1024, 24, 392, 24, 152, 224, 152, 368, 520, 368, 520, 184, 544, 184, 544, 400, 400, 400, 400, 576, 928, 576, 928, 440, 888, 368, 808, 328, 736, 328, 736, 304, 1024, 304, 1024, 144, 736, 144, 736, 120, 1024, 120, 1024, -104, 1144, -104, 1144, 640, -32, 640)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+polygon = PackedVector2Array(-32, -32, 1024, -32, 1024, 24, 392, 24, 152, 224, 152, 368, 520, 368, 520, 184, 544, 184, 544, 400, 400, 400, 400, 576, 928, 576, 928, 440, 888, 368, 808, 328, 736, 328, 736, 304, 1024, 304, 1024, 144, 736, 144, 736, 120, 1024, 120, 1024, -32, 1144, -32, 1144, 640, -32, 640)
+
+[node name="platform" type="Sprite2D" parent="Ground"]
+position = Vector2(504.64, -144.58)
+scale = Vector2(2.36, 24.84)
+texture = SubResource("GradientTexture1D_ccg0j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(504.64, -144.204)
+scale = Vector2(1.28, 1.50545)
+shape = SubResource("RectangleShape2D_b4sk7")
+
+[node name="Player" parent="." instance=ExtResource("1_ql5bw")]
+position = Vector2(494, 535)
+
+[node name="Next lvl vent" parent="." instance=ExtResource("2_mkk1p")]
+position = Vector2(1037, 105)
+next_lvl = ExtResource("3_5u1x6")
+
+[node name="Tree" parent="." instance=ExtResource("4_as3om")]
+position = Vector2(728, 545)
+
+[node name="Platform" parent="Tree" index="3"]
+position = Vector2(-39.3334, -60.6667)
+
+[node name="Path" parent="Tree" index="4"]
+curve = SubResource("Curve2D_vw6d7")
+
+[node name="Tree2" parent="." instance=ExtResource("4_as3om")]
+position = Vector2(297, 337)
+
+[node name="Platform" parent="Tree2" index="3"]
+position = Vector2(80.0002, -61.9999)
+
+[node name="Sprite2D" parent="Tree2/Platform" index="0"]
+flip_h = true
+
+[node name="Path" parent="Tree2" index="4"]
+curve = SubResource("Curve2D_lwlwq")
+
+[node name="InputManager" parent="." instance=ExtResource("5_las80")]
+
+[node name="BackgroundTile" type="Sprite2D" parent="."]
+z_index = -10
+texture_repeat = 2
+position = Vector2(548, 365)
+texture = ExtResource("6_n1dqg")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 800)
+
+[editable path="Tree"]
+[editable path="Tree2"]

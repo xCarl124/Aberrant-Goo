@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvfeufshvq3bl"]
+
+[ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_kdj4x"]
+[ext_resource type="PackedScene" uid="uid://c1i80pt5vh0db" path="res://Prefabs/input_manager.tscn" id="2_t2v7a"]
+[ext_resource type="PackedScene" uid="uid://gehx7ndlhboy" path="res://Prefabs/next_lvl_vent.tscn" id="3_ahgau"]
+[ext_resource type="PackedScene" uid="uid://d28lv2tkf6v2q" path="res://Scenes/level_movement.tscn" id="4_yisl6"]
+[ext_resource type="Texture2D" uid="uid://dvyqu28jvr2ka" path="res://Sprites/Background tile.png" id="5_eja67"]
+
+[node name="Menu Level" type="Node2D"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(16, 0)
+
+[node name="Sprite" type="Polygon2D" parent="Ground"]
+polygon = PackedVector2Array(-32, 0, 1024, 0, 1024, 64, 40, 64, 40, 576, 1024, 576, 1024, 0, 1144, 0, 1144, 704, -32, 704)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+polygon = PackedVector2Array(-32, 0, 40, 0, 40, 576, 1024, 576, 1024, 0, 1144, 0, 1144, 704, -32, 704)
+
+[node name="Player" parent="." instance=ExtResource("1_kdj4x")]
+position = Vector2(162, 550)
+
+[node name="InputManager" parent="." instance=ExtResource("2_t2v7a")]
+
+[node name="Next lvl vent" parent="." instance=ExtResource("3_ahgau")]
+position = Vector2(1040, 480)
+next_lvl = ExtResource("4_yisl6")
+
+[node name="BackgroundTile" type="Sprite2D" parent="."]
+z_index = -10
+texture_repeat = 2
+position = Vector2(552, 368)
+texture = ExtResource("5_eja67")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 800)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://d28lv2tkf6v2q"]
+[gd_scene load_steps=9 format=3 uid="uid://d28lv2tkf6v2q"]
 
 [ext_resource type="PackedScene" uid="uid://bji3tgkrsfd0w" path="res://Prefabs/player.tscn" id="1_p2eul"]
-[ext_resource type="Script" path="res://Scripts/input_manager.gd" id="2_yhegy"]
 [ext_resource type="PackedScene" uid="uid://gehx7ndlhboy" path="res://Prefabs/next_lvl_vent.tscn" id="3_m5apt"]
-[ext_resource type="PackedScene" uid="uid://kco14wsxykqb" path="res://Scenes/level_3.tscn" id="4_yxtlg"]
+[ext_resource type="PackedScene" uid="uid://c1i80pt5vh0db" path="res://Prefabs/input_manager.tscn" id="4_71t82"]
+[ext_resource type="PackedScene" uid="uid://kco14wsxykqb" path="res://Scenes/level_trees.tscn" id="4_yxtlg"]
+[ext_resource type="Texture2D" uid="uid://dvyqu28jvr2ka" path="res://Sprites/Background tile.png" id="5_vsjwb"]
 
 [sub_resource type="Gradient" id="Gradient_0abe4"]
 offsets = PackedFloat32Array(1)
@@ -16,16 +17,16 @@ width = 48
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s47sh"]
 size = Vector2(87.5, 16)
 
-[node name="Level 2" type="Node2D"]
+[node name="Level Movement" type="Node2D"]
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(16, 0)
 
 [node name="Sprite" type="Polygon2D" parent="Ground"]
-polygon = PackedVector2Array(-32, 0, 1074, 0, 1074, 40, 40, 42, 40, 288, 514, 288, 514, 320, 40, 320, 40, 576, 272, 576, 272, 416, 834, 416, 834, 144, 880, 144, 880, 416, 1026, 416, 1026, 0, 1144, 0, 1144, 704, -32, 704)
+polygon = PackedVector2Array(-32, 0, 1032, 0, 1024, 40, 536, 40, 440, 56, 368, 96, 312, 168, 312, 288, 514, 288, 514, 320, 40, 320, 40, 576, 272, 576, 272, 416, 834, 416, 834, 144, 880, 144, 880, 416, 1024, 416, 1024, 0, 1144, 0, 1144, 704, -32, 704)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
-polygon = PackedVector2Array(-32, 0, 40, 0, 1026, 0, 1026, 40, 40, 42, 40, 288, 514, 288, 514, 320, 40, 320, 40, 576, 272, 576, 272, 416, 834, 416, 834, 144, 880, 144, 880, 416, 1026, 416, 1026, 0, 1144, 0, 1144, 704, -32, 704)
+polygon = PackedVector2Array(-32, 0, 40, 0, 1024, 0, 1024, 40, 536, 40, 440, 56, 368, 96, 312, 168, 312, 288, 514, 288, 514, 320, 40, 320, 40, 576, 272, 576, 272, 416, 834, 416, 834, 144, 880, 144, 880, 416, 1024, 416, 1024, 0, 1144, 0, 1144, 704, -32, 704)
 
 [node name="platform" type="Sprite2D" parent="Ground"]
 position = Vector2(666, 192)
@@ -40,9 +41,16 @@ shape = SubResource("RectangleShape2D_s47sh")
 [node name="Player" parent="." instance=ExtResource("1_p2eul")]
 position = Vector2(96, 520)
 
-[node name="InputManager" type="Node2D" parent="."]
-script = ExtResource("2_yhegy")
-
 [node name="Next lvl vent" parent="." instance=ExtResource("3_m5apt")]
 position = Vector2(1042, 374)
 next_lvl = ExtResource("4_yxtlg")
+
+[node name="InputManager" parent="." instance=ExtResource("4_71t82")]
+
+[node name="BackgroundTile" type="Sprite2D" parent="."]
+z_index = -10
+texture_repeat = 2
+position = Vector2(548, 365)
+texture = ExtResource("5_vsjwb")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 800)

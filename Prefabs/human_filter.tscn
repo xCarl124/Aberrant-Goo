@@ -23,6 +23,7 @@ size = Vector2(10, 130)
 size = Vector2(10, 128)
 
 [node name="Human Filter" type="StaticBody2D"]
+modulate = Color(1, 1, 1, 0.313726)
 collision_layer = 2
 collision_mask = 2
 

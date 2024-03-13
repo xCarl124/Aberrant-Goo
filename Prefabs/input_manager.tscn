@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1i80pt5vh0db"]
+
+[ext_resource type="Script" path="res://Scripts/input_manager.gd" id="1_kw1ht"]
+
+[sub_resource type="Gradient" id="Gradient_yklv2"]
+offsets = PackedFloat32Array(0.532468, 0.558442)
+colors = PackedColorArray(0.821789, 0.821789, 0.821789, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kfryg"]
+gradient = SubResource("Gradient_yklv2")
+width = 50
+height = 50
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[node name="InputManager" type="Node2D"]
+script = ExtResource("1_kw1ht")
+
+[node name="Center" type="Sprite2D" parent="."]
+modulate = Color(1, 0.419608, 0.188235, 0.662745)
+position = Vector2(3.8147e-06, 3.8147e-06)
+scale = Vector2(0.2, 0.2)
+texture = SubResource("GradientTexture2D_kfryg")
