@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b5w8gh1m76o0k"]
+[gd_scene load_steps=17 format=3 uid="uid://b5w8gh1m76o0k"]
 
 [ext_resource type="Script" path="res://Scripts/tree.gd" id="1_3xerp"]
 [ext_resource type="Texture2D" uid="uid://cn00tmpcqk6ox" path="res://Sprites/Tree sheet.png" id="2_87s1y"]
@@ -53,9 +53,25 @@ size = Vector2(95.5, 11.5)
 
 [sub_resource type="Curve2D" id="Curve2D_rvvxi"]
 _data = {
-"points": PackedVector2Array(13.6163, 9.20802, -13.6163, -9.20802, -0.5, -11.5, 4.67826, 10.044, -4.67826, -10.044, 7.33333, -35.3333, 10.312, -2.49283, -10.312, 2.49283, -20, -40, 17.5055, -0.583121, -17.5055, 0.583121, -115.333, -43.3333)
+"points": PackedVector2Array(13.6163, 9.20802, -13.6163, -9.20802, -0.5, -11.5, 4.67826, 10.044, -4.67826, -10.044, 7.33333, -35.3333, 10.312, -2.49283, -10.312, 2.49283, -20, -40, -13.3278, 3.75021, 13.3278, -3.75021, 152.667, -35.3333)
 }
 point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_k5od6"]
+offsets = PackedFloat32Array(0.583756, 0.624366)
+colors = PackedColorArray(0.243137, 0.537255, 0.282353, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cy0fr"]
+gradient = SubResource("Gradient_k5od6")
+width = 5
+height = 8
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.940171, 0.0726496)
+
+[sub_resource type="Gradient" id="Gradient_ti4jn"]
+offsets = PackedFloat32Array(0.395122, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
 [node name="Tree" type="Node2D"]
 scale = Vector2(1.5, 1.5)
@@ -73,6 +89,7 @@ default_color = Color(0.552941, 0.239216, 0.486275, 1)
 [node name="Aberration Trigger" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aberration Trigger"]
+visible = false
 position = Vector2(-0.5, 3)
 shape = SubResource("RectangleShape2D_l8cuy")
 
@@ -95,5 +112,22 @@ curve = SubResource("Curve2D_rvvxi")
 
 [node name="Audio Player" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_3be8f")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -3.33333)
+emitting = false
+amount = 15
+lifetime = 0.6
+one_shot = true
+speed_scale = 0.4
+explosiveness = 1.0
+texture = SubResource("GradientTexture2D_cy0fr")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 5)
+gravity = Vector2(0, 280)
+initial_velocity_max = 20.0
+angular_velocity_min = -34.28
+angular_velocity_max = 45.72
+color_ramp = SubResource("Gradient_ti4jn")
 
 [connection signal="body_entered" from="Aberration Trigger" to="." method="_on_trigger_entered"]

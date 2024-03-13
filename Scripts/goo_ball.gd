@@ -2,8 +2,8 @@ class_name GooBall
 extends RigidBody2D
 
 @export var impulse_force: int = 400
-@export var aim_line: Line2D
 
+@onready var aim_line: Line2D = $"Aim Line"
 @onready var hitbox: CollisionShape2D = $Hitbox
 @onready var ball_sprite = $"Ball Sprite"
 @onready var face = $Face
@@ -69,4 +69,6 @@ func check_in_creature():
 
 
 func destroy():
+	DeathParticles.instance().emit_particles(position)
+	InputManager.instance().is_alive = false
 	queue_free()

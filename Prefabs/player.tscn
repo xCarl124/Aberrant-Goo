@@ -25,7 +25,7 @@ radius = 18.0
 [sub_resource type="Gradient" id="Gradient_v7krg"]
 colors = PackedColorArray(1, 0.854902, 0.0352941, 1, 0.882353, 0.14902, 0, 1)
 
-[node name="Player" type="RigidBody2D" node_paths=PackedStringArray("aim_line")]
+[node name="Player" type="RigidBody2D"]
 z_index = 5
 collision_layer = 3
 collision_mask = 3
@@ -35,7 +35,6 @@ max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_trfh2")
 impulse_force = 720
-aim_line = NodePath("Aim Line")
 
 [node name="Ball Sprite" type="Sprite2D" parent="."]
 modulate = Color(0.14902, 0.168627, 0.266667, 1)

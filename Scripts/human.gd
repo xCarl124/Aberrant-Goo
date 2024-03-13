@@ -41,6 +41,7 @@ func aberrate():
 
 
 func destroy():
+	DeathParticles.instance().emit_particles(position)
 	queue_free()
 
 
