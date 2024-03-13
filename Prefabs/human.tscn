@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://darbvxvl6l23i"]
+[gd_scene load_steps=12 format=3 uid="uid://darbvxvl6l23i"]
 
 [ext_resource type="Script" path="res://Scripts/human.gd" id="1_1hok7"]
 [ext_resource type="Texture2D" uid="uid://5h3geq668umv" path="res://Sprites/Human/Limb.png" id="2_aqlv0"]
 [ext_resource type="Texture2D" uid="uid://dwnajcqkwj35t" path="res://Sprites/Human/Head Normal.png" id="3_pfgi1"]
 [ext_resource type="Texture2D" uid="uid://dacy24nqptlfd" path="res://Sprites/Human/Torso.png" id="4_a7fpg"]
 [ext_resource type="Texture2D" uid="uid://dvvuqki5mv3nh" path="res://Sprites/Human/Head Aberrant.png" id="5_1j0hg"]
+[ext_resource type="AudioStream" uid="uid://kh2vlquhyduf" path="res://Sounds/human aberrate.wav" id="6_x2ckt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8u3o"]
 radius = 30.0
@@ -659,11 +660,14 @@ tracks/26/path = NodePath(".")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [true],
 "method": &"set_on_animation"
+}, {
+"args": [],
+"method": &"play_sfx"
 }, {
 "args": [false],
 "method": &"set_on_animation"
@@ -807,3 +811,6 @@ shape = SubResource("CapsuleShape2D_y8u3o")
 libraries = {
 "": SubResource("AnimationLibrary_0rsus")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_x2ckt")

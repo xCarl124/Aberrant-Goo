@@ -61,11 +61,10 @@ func check_in_creature():
 		position = parent.position
 		hitbox.set_deferred("disabled", false)
 		set_deferred("freeze", false)
-		ball_sprite.visible = true	# Change later when better graphics
+		ball_sprite.visible = true
 		# Destroy creature
 		InputManager.instance().remove_creature()
 		parent.destroy()
-		#await get_tree().create_timer(0.01).timeout
 
 
 func destroy():

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1i80pt5vh0db"]
+[gd_scene load_steps=11 format=3 uid="uid://c1i80pt5vh0db"]
 
 [ext_resource type="Script" path="res://Scripts/input_manager.gd" id="1_kw1ht"]
 [ext_resource type="Script" path="res://Scripts/death_particles.gd" id="2_3aymm"]
+[ext_resource type="AudioStream" uid="uid://bb4hvmmn5ichg" path="res://Sounds/death.wav" id="3_fhudo"]
 
 [sub_resource type="Gradient" id="Gradient_yklv2"]
 offsets = PackedFloat32Array(0.532468, 0.558442)
@@ -61,3 +62,6 @@ lifetime = 0.7
 one_shot = true
 explosiveness = 1.0
 script = ExtResource("2_3aymm")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Death particles"]
+stream = ExtResource("3_fhudo")

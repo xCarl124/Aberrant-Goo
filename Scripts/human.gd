@@ -13,6 +13,7 @@ var on_animation := false
 
 @onready var sprite = $Sprite
 @onready var animator = $AnimationPlayer
+@onready var audio_player = $AudioStreamPlayer2D
 
 
 func _physics_process(delta):
@@ -57,3 +58,7 @@ func interact():
 
 func set_on_animation(b: bool):
 	on_animation = b
+
+
+func play_sfx():
+	audio_player.play()
